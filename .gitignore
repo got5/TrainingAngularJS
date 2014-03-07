@@ -1,6 +1,8 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+node_modules/
+dist
+.tmp
+.sass-cache
+app/vendor
+*.iml
+.idea/
+npm-debug*.log
