@@ -1,24 +1,28 @@
 <article class="k-product-sheet">
 	<div class="hproduct k-product">
 		<div class="photo-data">
-			<img class="photo" ng-src="{{getImage(product.id)}}" />
+            <!--TODO - set image url-->
+			<img class="photo" src="/img/catalog/1.jpg" />
 		</div>
 		<div class="product-data">
-			<h3 class="fn name">{{product.name}}</h3>
+            <!--TODO - SET NAME-->
+			<h3 class="fn name">PRODUCT NAME</h3>
 			<h4 class="category">
-				<a href="#">{{product.category}}</a>
+                <!--Todo - SET CATEGORY-->
+				<a href="#">CATEGORY</a>
 			</h4>
 
 			<!-- TODO: return correct CSS class: rating and zero/one/two/three/four/five -->
-			<p ng-class="getCSSRating(product.comments)">
-				<a href="#comments">{{product.comments.length}} comment(s)</a>
+			<p class="rating two">
+				<a href="#comments">NUMBER OF COMMENTS comment(s)</a>
 			</p>
-			<p class="description">{{product.description}}</p>
-			Quantity: <input type="number" class="product-qty" ng-model="quantity" />
+			<p class="description">DESCRIPTION</p>
+            <!--TODO - register the quantity-->
+			Quantity: <input type="number" class="product-qty"  />
             <br />
 			<div class="price-data">
 				<strong class="price sale">
-                    {{product.price * quantity |currency}}
+                    <!--Todo - total price-->
 				</strong>
 			</div>
 			<div class="buyZone">
@@ -28,7 +32,8 @@
 					</p>
 				</div>
 				<p class="buy">
-					<a href="#/basket" ng-click="addToCart()">Add to basket</a>
+                    <!--TODO - handler on button-->
+					<a href="#/basket">Add to basket</a>
 				</p>
 			</div>
 		</div>
