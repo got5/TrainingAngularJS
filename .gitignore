@@ -6,3 +6,4 @@ app/vendor
 *.iml
 .idea/
 npm-debug*.log
+prod/

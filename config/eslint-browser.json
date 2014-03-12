@@ -1,6 +1,5 @@
 {
     "rules": {
-        "directive-name": 1,
         "no-alert": 2,
         "no-caller": 2,
         "no-bitwise": 0,
