@@ -33,8 +33,7 @@
     "matchdep": "~0.3.0",
     "connect-modrewrite": "~0.5.11",
     "eslint-grunt": "~0.2.0",
-    "express": "3.4.8",
-    "grunt-zip": "~0.13.0"
+    "express": "3.4.8"
   },
   "scripts": {
     "test": "grunt test"
