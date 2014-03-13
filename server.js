@@ -81,7 +81,7 @@ app.post('/api/login', function (req, res) {
         var user = auth(login);
         if (user.password === password) {
             user.token = guid();
-            return res.send(user.token);
+            return res.send(user);
         } else {
             res.statusCode = 403;
             return res.send('Error 403: Not allowed.');

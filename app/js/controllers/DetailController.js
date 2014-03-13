@@ -3,7 +3,7 @@
 
     /** Product detail view controller */
     angular.module('app')
-        .controller('DetailController', ['$scope', '$routeParams', 'catalogService', function ($scope, $routeParams, catalogService) {
+        .controller('DetailController', ['$scope', '$routeParams', 'catalogService', 'ProductUtils', function ($scope, $routeParams, catalogService, productUtils) {
 
             $scope.product = {};
 
@@ -26,39 +26,12 @@
                 }
             };
 
-            $scope.getCSSRating = function (comments) {
-                if (!comments) {
-                    return [];
-                } else {
-                    var rating = 0;
-                    for (var i = 0; i < comments.length; i++) {
-                        rating += comments[i].rate;
-                    }
-                    rating = Math.floor(rating / comments.length);
-
-                    var css = ['rating'];
-
-                    switch (rating) {
-                        case 1:
-                            css.push("one");
-                            break;
-                        case 2:
-                            css.push("two");
-                            break;
-                        case 3:
-                            css.push("three");
-                            break;
-                        case 4:
-                            css.push("four");
-                            break;
-                        case 5:
-                            css.push("five");
-                            break;
-                        default :
-                            css.push("zero");
-                    }
-                    return css;
+            $scope.getCSSRating = function() {
+                if ($scope.product != undefined) {
+                    return productUtils.getRatingCss($scope.product);
                 }
+                return null;
             };
+
         }]);
 }());
