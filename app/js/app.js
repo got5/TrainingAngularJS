@@ -57,5 +57,7 @@
                     "_Sign_In_": "Sign-in"
                 });
             }
-        ]);
+        ]).run(function run( $http, $cookies ){
+        $http.defaults.headers.common.Authentication = $cookies.token;
+    });
 }());

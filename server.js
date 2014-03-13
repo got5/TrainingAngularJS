@@ -3,6 +3,16 @@ var fs = require("fs");
 var app = express();
 var maxAge = 31557600000;
 
+function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+};
+
+function guid() {
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+}
 
 function readJsonFileSync(filepath, encoding) {
 
@@ -21,6 +31,7 @@ function loadFile(file) {
 
 var news = loadFile('data/news.json');
 var catalog = loadFile('data/catalog.json');
+var users = loadFile('data/users.json');
 
 
 var getIndexFromCol = function (col, pId) {
@@ -31,6 +42,17 @@ var getIndexFromCol = function (col, pId) {
         }
     }
     return -1;
+};
+
+var auth = function (login) {
+    for (var index = 0; index < users.length; index++) {
+        var user = users[index];
+        if (user.login == login) {
+            return user;
+        } else {
+            return false;
+        }
+    }
 };
 
 var getFromCol = function (col, pId) {
@@ -47,6 +69,28 @@ app.use(express.static(__dirname + '/app'));
 app.get('/', function (req, res) {
     res.sendfile(__dirname + '/app/index.html');
 });
+
+app.post('/api/login', function (req, res) {
+
+    if (!req.body.hasOwnProperty('login') || !req.body.hasOwnProperty('password')) {
+        res.statusCode = 400;
+        return res.send('Error 400: Post syntax incorrect.');
+    } else {
+        var login = req.body.login;
+        var password = req.body.password;
+        var user = auth(login);
+        if (user.password === password) {
+            user.token = guid();
+            return res.send(user.token);
+        } else {
+            res.statusCode = 403;
+            return res.send('Error 403: Not allowed.');
+        }
+    }
+
+});
+
+/*______________________*/
 
 app.get('/api/news', function (req, res) {
     res.json(news);
@@ -92,7 +136,7 @@ app.get('/api/news/like/:id', function (req, res) {
     var idNews = req.params.id;
 
     var updatedNews = getFromCol(news, idNews);
-    if(!updatedNews){
+    if (!updatedNews) {
         res.statusCode = 400;
         return res.send('Error 400: News not found');
     }
