@@ -8,14 +8,14 @@
     var ProductUtils = function() {
 
         /** Returns rating for a given product. */
-        var getProductRating = function(pItem) {
-            if (pItem.comments) {
+        var getProductRating = function(comments) {
+            if (comments) {
                 var sumRatings = 0;
-                for ( var index = 0; index < pItem.comments.length; index++) {
-                    var comment = pItem.comments[index];
+                for ( var index = 0; index < comments.length; index++) {
+                    var comment = comments[index];
                     sumRatings += comment.rate;
                 }
-                return Math.floor(sumRatings / pItem.comments.length);
+                return Math.floor(sumRatings / comments.length);
             }
             return 0;
         };
@@ -27,22 +27,22 @@
             if (pItem != undefined) {
                 switch (getProductRating(pItem)) {
                     case 1:
-                        css.push("one");
+                        css.push('one');
                         break;
                     case 2:
-                        css.push("two");
+                        css.push('two');
                         break;
                     case 3:
-                        css.push("three");
+                        css.push('three');
                         break;
                     case 4:
-                        css.push("four");
+                        css.push('four');
                         break;
                     case 5:
-                        css.push("five");
+                        css.push('five');
                         break;
                     default :
-                        css.push("zero");
+                        css.push('zero');
                 }
             }
             return css;

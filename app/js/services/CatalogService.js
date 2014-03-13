@@ -8,19 +8,11 @@
 
         /** Returns all products. Uses the JSON file */
         this.getCatalog = function () {
-            return http.get('api/catalog').success(function (data) {
-                /*Catalog loaded successfully.*/
-            }).error(function (data) {
-                /*ERROR loading catalog*/
-            });
+            return http.get('api/catalog');
         };
 
         this.getProduct = function (pId) {
-            return http.get('api/catalog/' + pId).success(function (data) {
-                /*Catalog loaded successfully.*/
-            }).error(function (data) {
-                /*ERROR loading catalog*/
-            });
+            return http.get('api/catalog/' + pId);
         };
     };
 

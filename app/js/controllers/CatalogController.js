@@ -3,14 +3,18 @@
 
     /** Catalog view controller */
     angular.module('app')
-        .controller('CatalogController', ['$scope', 'catalogService', function ($scope, catalogService) {
+        .controller('CatalogController', ['$scope', '$location', 'catalogService','ProductUtils', 'UserService', function ($scope, $location, catalogService, ProductUtils, UserService) {
 
             /** Returns all products. */
             catalogService.getCatalog().success(function (result) {
-                $scope.products = [];
-                for (var id in result.products) {
-                    $scope.products.push(result.products[id]);
-                }
+                $scope.products = result;
             });
+
+            $scope.getRatingClass = ProductUtils.getRatingCss;
+
+            $scope.addToCart = function(pItem){
+                 UserService.addToCart(pItem,1);
+                 $location.path('/basket');
+            }
         }]);
 }());

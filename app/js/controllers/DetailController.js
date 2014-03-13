@@ -3,7 +3,7 @@
 
     /** Product detail view controller */
     angular.module('app')
-        .controller('DetailController', ['$scope', '$routeParams', 'catalogService', 'ProductUtils', function ($scope, $routeParams, catalogService, productUtils) {
+        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils', 'UserService', function ($scope, $location, $routeParams, catalogService, productUtils, UserService) {
 
             $scope.product = {};
 
@@ -14,8 +14,9 @@
             $scope.quantity = 1;
 
             /** Add select item to user cart. */
-            $scope.addToCart = function () {
-                // TODO
+            $scope.addToCart = function (pItem, qty) {
+                UserService.addToCart(pItem,qty);
+                $location.path('/basket');
             };
 
             $scope.getImage = function (id) {
@@ -26,12 +27,8 @@
                 }
             };
 
-            $scope.getCSSRating = function() {
-                if ($scope.product != undefined) {
-                    return productUtils.getRatingCss($scope.product);
-                }
-                return null;
-            };
+            $scope.getCSSRating =  productUtils.getRatingCss;
+
 
         }]);
 }());

@@ -52,6 +52,7 @@ describe("Detail Controller",function(){
     });
 
     it('getCSSRating() should return the correct css classes', function() {
-        expect(scope.getCSSRating(book1().comments)).toEqual(['rating','two']);
+        //expect(scope.getCSSRating(book1().comments)).toEqual(['rating','two']);
+        //test moved to ProductUtilsSpec.js
     });
 });
