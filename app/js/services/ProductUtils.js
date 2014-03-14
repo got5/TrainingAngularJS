@@ -24,7 +24,7 @@
         this.getRatingCss = function(pItem) {
             var css = ['rating'];
 
-            if (pItem != undefined) {
+            if (pItem !== undefined) {
                 switch (getProductRating(pItem)) {
                     case 1:
                         css.push('one');

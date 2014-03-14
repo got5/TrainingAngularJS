@@ -3,20 +3,20 @@
 
     /** Home view controller */
     angular.module('app')
-        .controller('HomeController', ['$scope','newsService', function ($scope,newsService) {
+        .controller('HomeController', ['$scope','NewsService', function ($scope,NewsService) {
 
             $scope.message = "Welcome in our shop!!!";
 
 
             /** Gets all the news. */
-            $scope.lstNews = newsService.query();
+            $scope.lstNews = NewsService.query();
 
             /** Gets the news with id = 1. */
-            $scope.currentNews = newsService.get({ id: 1 });
-            $scope.newsOfTheDay = newsService.random();
+            $scope.currentNews = NewsService.get({ id: 1 });
+            $scope.newsOfTheDay = NewsService.random();
 
             /** Creates a new news. */
-            $scope.addedNews = new newsService;
+            $scope.addedNews = new NewsService();
 
             /** Increments the number of likes of a news, and saves the changes. */
             $scope.addLike = function(news) {
@@ -25,16 +25,19 @@
 
             /** Deletes a news. */
             $scope.deleteNews = function(news) {
-                news.$delete();
-                $scope.lstNews.splice($scope.lstNews.indexOf(news),1);
+                news.$delete(function(){
+                    $scope.lstNews.splice($scope.lstNews.indexOf(news),1);
+                });
+
             };
 
             /** Adds a news. */
             $scope.addNews = function() {
-                $scope.addedNews.$save();
+                $scope.addedNews.$save(function(){
+                    $scope.lstNews.push($scope.addedNews);
+                    $scope.addedNews = new NewsService();
+                });
 
-                // We refresh the list with the added news.
-                $scope.lstNews = newsService.query();
             };
         }]);
 }());

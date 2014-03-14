@@ -4,7 +4,7 @@
 (function(){
     "use strict";
     angular.module('app')
-        .factory('newsService',['$resource', function ($resource) {
+        .factory('NewsService',['$resource', function ($resource) {
             return $resource('/api/news/:op/:id',{id:'@id'},{
             like: {method:'GET',params: {op:'like'}},
             random: {method:'GET',params:{op:'random'}}

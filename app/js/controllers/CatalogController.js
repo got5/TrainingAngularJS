@@ -15,6 +15,6 @@
             $scope.addToCart = function(pItem){
                  UserService.addToCart(pItem,1);
                  $location.path('/basket');
-            }
+            };
         }]);
 }());
