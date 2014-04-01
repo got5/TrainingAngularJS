@@ -5,12 +5,7 @@
     angular.module('app')
         .controller('CatalogController', ['$scope', '$location', 'catalogService','ProductUtils', 'UserService', function ($scope, $location, catalogService, ProductUtils, UserService) {
 
-            $scope.currentPage = 1;
-            $scope.nbResults = 3;
 
-            /*$scope.getNbPages = function() {
-                return $scope.products != undefined ? Math.ceil($scope.products.length / $scope.nbResults) : 0;
-            };*/
 
             /** Returns all products. */
             catalogService.getCatalog().success(function (result) {
