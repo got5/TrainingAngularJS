@@ -18,7 +18,28 @@ describe('productSummary directive unit test', function() {
 		scope = $rootScope;
 		
 		// Set a product property in the scope attached to the tested directive.
-		scope.product = { name: "AngularJS" };
+		scope.product = {
+            "id": 1,
+            "name": "AngularJS",
+            "author": "Brad Green, Shyam Seshadri",
+            "price": 15.34,
+            "description": "Description...",
+            "category": "book",
+            "isNew": false,
+            "comments": [
+                {
+                    "rate": 2,
+                    "user": "Laurent Wroblewski",
+                    "comment": "Test comment"
+                },
+                {
+                    "rate": 4,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
+                }
+            ]
+
+        };
 		
 		// Compile the HTML snippet.
 		$compile(elem)(scope);
@@ -27,7 +48,6 @@ describe('productSummary directive unit test', function() {
 	
 	it('should display the product title', inject(function($compile, $rootScope) {
 		// Class selector works because jquery is loaded.
-		expect(elem.find('h3.name a').text()).toMatch('AngularJS');
+		expect(elem.find('h3').find('a').text()).toMatch('AngularJS');
 	}));
 });
-

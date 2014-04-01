@@ -3,7 +3,8 @@
 
     /** Product detail view controller */
     angular.module('app')
-        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils', 'UserService', function ($scope, $location, $routeParams, catalogService, productUtils, UserService) {
+        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils', 'UserService',
+            function ($scope, $location, $routeParams, catalogService, productUtils, UserService) {
 
             $scope.product = {};
 

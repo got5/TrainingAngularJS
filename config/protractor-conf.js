@@ -12,17 +12,19 @@ exports.config = {
 
     // The location of the selenium standalone server .jar file.
     // http://docs.seleniumhq.org/download/
-    //seleniumServerJar: './script/selenium-server-standalone-2.39.0.jar',
+    seleniumServerJar: './scripts/selenium-server-standalone-2.40.0.jar',
     // The port to start the selenium server on, or null if the server should
     // find its own unused port.
-    //seleniumPort: 4444,
+    seleniumPort: 4444,
     // https://npmjs.org/package/protractor
-     seleniumAddress: 'http://localhost:4444/wd/hub',
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
     // Chromedriver location is used to help the selenium standalone server
     // find chromedriver. This will be passed to the selenium jar as
     // the system property webdriver.chrome.driver. If null, selenium will
     // attempt to find chromedriver using PATH.
+    //For Windows
     //chromeDriver: './script/Chromedriver.exe',
+
     // Additional command line options to pass to selenium. For example,
     // if you need to change the browser timeout, use
     // seleniumArgs: ['-browserTimeout=60'],
@@ -31,14 +33,11 @@ exports.config = {
     // If sauceUser and sauceKey are specified, seleniumServerJar will be ignored.
     // The tests will be run remotely using SauceLabs.
     sauceUser: null,
-    sauceKey: null,
-
-    // ----- What tests to run -----
+    sauceKey: null,    // ----- What tests to run -----
     //
     // Spec patterns are relative to the location of this config.
     specs: [
-        '../test*/e2e/**/*.js',
-        '../**/test*/e2e/**/*.js'
+        '../test/e2e/**/*.js'
     ],
 
     // ----- Capabilities to be passed to the webdriver instance ----
