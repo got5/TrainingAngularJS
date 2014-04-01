@@ -26,6 +26,7 @@
                     })
                     .error(function (reason) {
                             $log.error('unable to log  ' + reason);
+                            $scope.errorMsg = "Bad Login and/or password";
                     });
 
             };
