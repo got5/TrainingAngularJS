@@ -20,8 +20,7 @@
             if (!currentUser) {
                 currentUser = $cookieStore.get('user');
                 if (!currentUser) {
-                    currentUser = User.createUser();
-                    saveCurrentUser();
+                   /*todo complete what's missing*/
                 }else{
                     currentUser.cart = User.createCart($cookieStore.get('cart'));
                 }
@@ -72,11 +71,7 @@
             return deferred.promise;
         };
 
-        /** Add an item with a given quantity in the user basket. */
-        this.addToCart = function (pItem, pQty) {
-            this.getCurrentUser().cart.setItemQty(pItem, pQty);
-            saveCurrentUser();
-        };
+
     };
 
 
