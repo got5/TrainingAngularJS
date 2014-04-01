@@ -2,16 +2,11 @@
     "use strict";
 
     angular.module('app')
-        .controller('LoginController', ['$scope', '$location', 'UserService', function ($scope, $location, userService) {
+        .controller('LoginController', ['$scope', function ($scope) {
             $scope.errorMsg = null;
 
             $scope.logUser = function() {
-                userService.logUser($scope.login, $scope.password)
-                    .then(function(currentUser) {
-                        $location.path("/");
-                    }, function(reason) {
-                        $scope.errorMsg = reason;
-                    });
+
             };
         }]);
 }());

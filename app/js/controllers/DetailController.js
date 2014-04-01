@@ -3,8 +3,8 @@
 
     /** Product detail view controller */
     angular.module('app')
-        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils', 'UserService',
-            function ($scope, $location, $routeParams, catalogService, productUtils, UserService) {
+        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService',
+            function ($scope, $location, $routeParams, catalogService) {
 
             $scope.product = {};
 
@@ -14,11 +14,7 @@
 
             $scope.quantity = 1;
 
-            /** Add select item to user cart. */
-            $scope.addToCart = function (pItem, qty) {
-                UserService.addToCart(pItem,qty);
-                $location.path('/basket');
-            };
+
 
             $scope.getImage = function (id) {
                 if (!id) {
@@ -28,8 +24,47 @@
                 }
             };
 
-            $scope.getCSSRating =  productUtils.getRatingCss;
 
+                /** Returns rating for a given product. */
+                var getProductRating = function(comments) {
+                    if (comments) {
+                        var sumRatings = 0;
+                        for ( var index = 0; index < comments.length; index++) {
+                            var comment = comments[index];
+                            sumRatings += comment.rate;
+                        }
+                        return Math.floor(sumRatings / comments.length);
+                    }
+                    return 0;
+                };
+
+                /** Returns the CSS class for the average rating of a given product. */
+                $scope.getCSSRating = function(pItem) {
+                    var css = ['rating'];
+
+                    if (pItem != undefined) {
+                        switch (getProductRating(pItem)) {
+                            case 1:
+                                css.push('one');
+                                break;
+                            case 2:
+                                css.push('two');
+                                break;
+                            case 3:
+                                css.push('three');
+                                break;
+                            case 4:
+                                css.push('four');
+                                break;
+                            case 5:
+                                css.push('five');
+                                break;
+                            default :
+                                css.push('zero');
+                        }
+                    }
+                    return css;
+                };
 
         }]);
 }());

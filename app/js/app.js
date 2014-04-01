@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    var app = angular.module('app', [ 'ngCookies', 'ngRoute','ngResource', 'ui.bootstrap', 'pascalprecht.translate','sdcoServices']);
+    var app = angular.module('app', [ 'ngCookies', 'ngRoute','ngResource', 'ui.bootstrap', 'pascalprecht.translate']);
 
     /** Services configuration */
     app.config(
@@ -9,12 +9,9 @@
             '$routeProvider',
             '$locationProvider',
             '$translateProvider',
-            'UserServiceProvider',
-            function ($routeProvider, $locationProvider, $translateProvider,UserServiceProvider) {
+            function ($routeProvider, $locationProvider, $translateProvider) {
 
                 $locationProvider.html5Mode(false);
-
-                UserServiceProvider.setDebugMode(true);
 
 
                 $routeProvider.when('/', {
