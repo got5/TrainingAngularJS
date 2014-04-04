@@ -5,31 +5,32 @@
 (function(){
     "use strict";
 
-    /** Directive controller */
-    var ProductSummaryController = function($scope, UserService, productUtils) {
+    /**
+     * Created by pierremarot on 04/04/2014.
+     */
 
-        /** Add select item to user cart. */
-        $scope.addToCart = function(pItem) {
-            UserService.addToCart(pItem, 1);
-        };
 
-        $scope.getRatingClass = productUtils.getRatingCss;
-    };
 
-    /** Product summary directive */
-    angular.module('app')
-    .directive('productSummary', function() {
+    angular.module('app').directive('productSummary', ['ProductUtils', function (ProductUtils) {
+
         return {
-            restrict : 'E',
-            templateUrl : "templates/partials/productSummary.html",
-            controller : [
-                '$scope',
+            restrict: 'E',
+            templateUrl: 'templates/partials/productSummary.html',
+            scope:{
+                product:'='
+            },
+            link: function (scope, element, attrs) {
+                scope.getRatingClass = ProductUtils.getRatingCss;
+            },
+            controller: ['$scope',
                 'UserService',
-                'ProductUtils',
-                function(scope, UserService, productUtils) {
-                    return new ProductSummaryController(scope, UserService,
-                        productUtils);
-                } ]
-        };
-    });
+                function ($scope,UserService) {
+
+                    $scope.addToCart = function (pItem) {
+                        UserService.addToCart(pItem, 1);
+                    };
+                }]
+        }
+
+    }]);
 }());
