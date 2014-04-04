@@ -18,6 +18,12 @@ module.exports = function(grunt){
             }
         },
 
+        docular: {
+            groups: [],
+            showDocularDocs: true,
+            showAngularDocs: true
+        },
+
         watch: {
             js: {
                 files: ['app/js/**/*.js', 'test/unit/**/*.js'],
@@ -205,6 +211,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('eslint-grunt');
+    grunt.loadNpmTasks('grunt-docular');
 
     grunt.registerTask("build", [
         "test",
@@ -248,5 +255,9 @@ module.exports = function(grunt){
         "build",
         "connect:prod",
         "watch"
+    ]);
+
+    grunt.registerTask("doc", [
+        "docular"
     ]);
 };
