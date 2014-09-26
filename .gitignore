@@ -1,3 +1,4 @@
 node_modules/
 app/vendor
-prod.tmp
+prod
+.tmp
