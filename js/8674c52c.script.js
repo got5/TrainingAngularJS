@@ -1141,7 +1141,11 @@ oXHR.onreadystatechange = function (oEvent) {
         application.constant('customOptions', responseText);    
     }  
 };
-oXHR.send(null);
+try{
+    oXHR.send(null);
+}catch(err){
+    console.log('This error should not be bubbled...');
+}
 ;
 'use strict';
 
