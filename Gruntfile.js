@@ -89,6 +89,13 @@ module.exports = function(grunt){
                 ],
                 dest: '<%= yeoman.dist %>/'
             },
+            //Slides must be at root
+            slides: {
+                cwd: '<%= yeoman.app %>/',
+                expand: true,
+                src:['data/slides.json'],
+                dest: '<%= yeoman.dist %>/'
+            },
             ace:{
                 cwd:'app/vendor/ace-builds/src-min/',
                 expand:true,
@@ -216,6 +223,7 @@ module.exports = function(grunt){
         'useminPrepare',
         "concat",
         "copy:prod",
+        "copy:slides",
         //"imagemin",
         //"cssmin",
       //  "uglify:prod",
