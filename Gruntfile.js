@@ -46,7 +46,8 @@ module.exports = function(grunt){
                     '<%= yeoman.app %>/vendor/angular/angular.min.js',
                     '<%= yeoman.app %>/vendor/angular-route/angular-route.min.js',
                     '<%= yeoman.app %>/vendor/angular-animate/angular-animate.min.js',
-                    '<%= yeoman.app %>/vendor/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js'
+                    '<%= yeoman.app %>/vendor/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js',
+                    '<%= yeoman.app %>/vendor/angular-sanitize/angular-sanitize.min.js'
                 ],
                 dest: '<%= yeoman.tmp %>/dep.js'
             },
