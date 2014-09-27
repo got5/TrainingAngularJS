@@ -19,12 +19,15 @@ app.get('/slides', function(req, res){
 );
 
 app.get('/options',
-	function(req, res){
+/*	function(req, res){
 		res.json(
 			{
 				'disableRemarks': slidesManager.disableRemarks
 			}
 		);
+	}*/
+	function(req, res){
+	    res.send('OMG :(', 404);
 	}
 );
 
