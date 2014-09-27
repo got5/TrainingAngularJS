@@ -92,9 +92,9 @@ module.exports = function(grunt){
             },
             //Slides must be at root
             slides: {
-                cwd: '<%= yeoman.app %>/',
+                cwd: '<%= yeoman.app %>/data/',
                 expand: true,
-                src:['data/slides.json'],
+                src:['slides.json'],
                 dest: '<%= yeoman.dist %>/'
             },
             ace:{
