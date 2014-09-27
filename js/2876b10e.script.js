@@ -1120,7 +1120,7 @@ var application = angular.module('trainingApp',
         var request = new XMLHttpRequest();
         request.open("GET", "slides", false);
         request.send(null);
-        application.slides = JSON.parse(request.responseText);
+        application.slides = JSON.parse(request.responseText.replace(/\\\r\n/g, ' '));
         $locationProvider.html5Mode(false); // TODO
 
         $routeProvider
@@ -1140,7 +1140,7 @@ var application = angular.module('trainingApp',
 //Get options content
 var oXHR = new XMLHttpRequest(), 
     responseText= {'disableRemarks': true};
-oXHR.open("GET", "/options", false);
+oXHR.open("GET", "options", false);
 oXHR.send(null);
 
 if (oXHR.status == 404){
