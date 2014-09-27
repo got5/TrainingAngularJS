@@ -95,7 +95,11 @@ module.exports = function(grunt){
                 cwd: '<%= yeoman.app %>/data/',
                 expand: true,
                 src:['slides.json'],
-                dest: '<%= yeoman.dist %>/'
+                dest: '<%= yeoman.dist %>/',
+                rename: function(dest, src){
+                    //remove json extension
+                    return dest + '/slides';
+                }
             },
             ace:{
                 cwd:'app/vendor/ace-builds/src-min/',
