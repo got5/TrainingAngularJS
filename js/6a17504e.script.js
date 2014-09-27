@@ -1118,7 +1118,7 @@ var application = angular.module('trainingApp',
         function ($routeProvider, $locationProvider, $compileProvider, $injector) {
 
         var request = new XMLHttpRequest();
-        request.open("GET", "/slides", false);
+        request.open("GET", "slides", false);
         request.send(null);
         application.slides = JSON.parse(request.responseText);
         $locationProvider.html5Mode(false); // TODO
