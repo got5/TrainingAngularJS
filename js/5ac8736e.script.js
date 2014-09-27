@@ -1129,23 +1129,15 @@ var application = angular.module('trainingApp',
 //Get options content
 var oXHR = new XMLHttpRequest(), 
     responseText= {'disableRemarks': true};
-
 oXHR.open("GET", "/options", false);
-oXHR.onreadystatechange = function (oEvent) {  
-    if (oXHR.readyState === 4) {  
-        if (oXHR.status === 200) {  //fine
-            responseText= angular.fromJson(oXHR.responseText);
-        } else {  //error
-           console.log("Unable to get options from server, using default values");
-        }
-        application.constant('customOptions', responseText);    
-    }  
-};
-try{
-    oXHR.send(null);
-}catch(err){
-    console.log('This error should not be bubbled...');
+oXHR.send(null);
+
+if (oXHR.status == 404){
+    console.log("Unable to get options from server, using default values");
+}else{
+    responseText= oXHR.responseText;
 }
+application.constant('customOptions', responseText);
 ;
 'use strict';
 
