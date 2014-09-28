@@ -2,13 +2,17 @@
 
 module.exports = function(grunt){
 
+    var app='app',
+        tmp= 'tmp',
+        dist='prod';
+
     grunt.initConfig({
 
         yeoman: {
             // configurable paths
-            app:  'app',
+            app:  app,
             tmp: 'tmp',
-            dist: 'prod'
+            dist: dist
         },
 
         pkg: grunt.file.readJSON("package.json"),
@@ -90,17 +94,6 @@ module.exports = function(grunt){
                 ],
                 dest: '<%= yeoman.dist %>/'
             },
-            //Slides must be at root
-            slides: {
-                cwd: '<%= yeoman.app %>/data/',
-                expand: true,
-                src:['slides.json'],
-                dest: '<%= yeoman.dist %>/',
-                rename: function(dest, src){
-                    //remove json extension
-                    return dest + '/slides';
-                }
-            },
             ace:{
                 cwd:'app/vendor/ace-builds/src-min/',
                 expand:true,
@@ -115,7 +108,6 @@ module.exports = function(grunt){
                 dest:'<%= yeoman.dist %>/'
             }
         },
-
 
         uglify: {
             prod: {
@@ -222,16 +214,25 @@ module.exports = function(grunt){
     require('matchdep').filterDev('grunt-contrib-*').forEach(grunt.loadNpmTasks);
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+    grunt.registerTask('customOps', 'make some specific treatments', function(){
+
+        //create the options file, cause it can't be rendered by node on gh-pages...
+        grunt.file.write(dist + '/options', '{disableRemarks: true}');
+
+        //Make slides.json valid
+        var initSlides= grunt.file.read(app + '/data/slides.json');
+        var modifiedContent= initSlides.replace(/(\\|\r|\n)/g, ' ');
+        grunt.file.write(dist +'/slides', modifiedContent);
+
+    });
+
     grunt.registerTask("build", [
         "clean:prodpre",
         "html2js",
         'useminPrepare',
         "concat",
         "copy:prod",
-        "copy:slides",
-        //"imagemin",
-        //"cssmin",
-      //  "uglify:prod",
+        "customOps",
         "rev",
         "copy:ace",
         "usemin",

@@ -8,7 +8,7 @@ var application = angular.module('trainingApp',
         var request = new XMLHttpRequest();
         request.open("GET", "slides", false);
         request.send(null);
-        application.slides = JSON.parse(request.responseText.replace(/\\/g, ' ').replace(/\r/g, ' ').replace(/\n/g, ' '));
+        application.slides = JSON.parse(request.responseText);
         $locationProvider.html5Mode(false); // TODO
 
         $routeProvider
