@@ -2,7 +2,7 @@ TrainingAngularJS
 =================
 
 This repo  contains the Lab project for the AngularJS Training.
-for more details, have a look at [http://got5.github.io/Angular-Librairies/](http://got5.github.io/Angular-Librairies/)
+for more details, have a look at [http://got5.github.io/TrainingAngularJS](http://got5.github.io/TrainingAngularJS/#/title)
 
 ## To install this application
 
