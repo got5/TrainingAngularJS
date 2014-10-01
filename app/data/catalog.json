@@ -35,6 +35,14 @@
                     "rate": 2,
                     "user": "Pierre Marot",
                     "comment": "my comment..."
+                }, {
+                    "rate": 3,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
+                }, {
+                    "rate": 1,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
                 }
             ]
 		}, 
