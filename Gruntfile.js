@@ -9,7 +9,7 @@ module.exports = function(grunt){
 
         concat: {
             js: {
-                src: ['app/vendor/**/*.js', 'app/javascript/**/*.js'],
+                src: ['app/vendor/**/*.js', 'app/js/**/*.js'],
                 dest: 'prod/<%= pkg.name %>.js'
             },
             css: {
@@ -41,20 +41,13 @@ module.exports = function(grunt){
                 expand: true,
                 src: ['**'],
                 dest: 'prod/'
-            },
-            jetty: {
-                cwd: 'prod/',
-                expand: true,
-                src: ['**'],
-                dest: '../webapp/'
             }
         },
 
         eslint: {
             all: ['app/js/**/*.js'],
             options: {
-                config: "config/eslint-browser.json",
-                rulesDir: "config/rules"
+                config: "config/eslint-browser.json"
             }
         },
 
@@ -67,7 +60,7 @@ module.exports = function(grunt){
                     dest: 'prod/js'
                 }],
                 options: {
-                    mangle: false
+                    mangle: true
                 }
             }
         },
@@ -217,17 +210,15 @@ module.exports = function(grunt){
         "test",
         "clean:prodpre",
         "check",
-        "ngdocs",
         "copy:prod",
         "cssmin",
         "htmlmin:prod",
-        "uglify:prod",
-        "copy:jetty"
+        "uglify:prod"
     ]);
 
     grunt.registerTask("check", [
-        "eslint:all",
-        "csslint"
+        "eslint:all"
+        /*,"csslint"*/
     ]);
 
     grunt.registerTask("test:unit", [

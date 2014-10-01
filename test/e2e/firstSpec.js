@@ -1,8 +1,6 @@
-/**
- * Created by pierremarot on 07/03/2014.
- */
-describe('load page',function(){
-    beforeEach(function(){
-        browser.get('/');
-    })
+describe("Detail Book Page", function () {
+
+    beforeEach(function () {
+        browser.get('http://localhost:3000/#/book/1');
+    });
 });

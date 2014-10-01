@@ -5,7 +5,7 @@ module.exports = function (config) {
     config.set({
 
         // base path, that will be used to resolve files and exclude
-        basePath: '../',
+        basePath: '../app',
 
 
         // Used to change your templates/views into js testable files.
@@ -16,20 +16,24 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            {pattern: 'app/vendor/angular/angular.js'},
-            {pattern: 'app/vendor/**/*.js'},
-            {pattern: 'app/js/**/*.js'},
-            {pattern: 'test/unit/**/*Spec.js'}
-
+            'vendor/angular/angular.js',
+            'vendor/**/*.js',
+            'js/**/*.js',
+            '../test/unit/**/*Spec.js',
+            'templates/partials/*.html'
         ],
 
 
         // list of files to exclude
         exclude: [
-            'app/vendor/**/*Spec.js',
-            'app/vendor/**/*.conf.js'
+            'vendor/**/*Spec.js',
+            'vendor/**/*.conf.js'
         ],
 
+        // generate js files from html templates
+        preprocessors: {
+            'templates/partials/*.html': 'ng-html2js'
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
@@ -50,7 +54,7 @@ module.exports = function (config) {
 
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
+        autoWatch: true,
 
 
         // Start these browsers, currently available:

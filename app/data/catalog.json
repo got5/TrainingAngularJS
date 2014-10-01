@@ -12,7 +12,12 @@
 					"rate": 2,
 					"user": "Laurent Wroblewski",
 					"comment": "Test comment"
-				}
+				},
+                {
+                    "rate": 4,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
+                }
 			]
 		
 		}, 
@@ -24,7 +29,14 @@
 			"description": "Description...", 
 			"category": "book", 
 			"isNew": true,
-			"comments": null
+			"comments": [
+
+                {
+                    "rate": 2,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
+                }
+            ]
 		}, 
 		 {
 			"id": 3,
