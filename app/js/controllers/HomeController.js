@@ -8,4 +8,4 @@
             $scope.message = "Welcome in our shop!!!";
 
         }]);
-}());
+})();
