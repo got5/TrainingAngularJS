@@ -653,26 +653,6 @@
         "content": "other/directives_decoration"
     },
     {
-        "title": "Lazy Loading",
-        "content": "other/lazy_loading"
-    },
-    {
-        "title": "RequireJS",
-        "content": "other/requirejs"
-    },
-    {
-        "title": "Registering lazy artifacts",
-        "content": "other/register_lazy_artefacts"
-    },
-    {
-        "title": "Registering lazy artifacts",
-        "content": "other/register_lazy_artefacts_2"
-    },
-    {
-        "title": "Loading lazy artifacts",
-        "content": "other/loading_lazy_artifacts"
-    },
-    {
         "title": "Security concerns",
         "content": "other/security"
     },
