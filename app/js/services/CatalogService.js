@@ -19,4 +19,4 @@
     app.factory('catalogService', ['$http', function ($http) {
         return new CatalogService($http);
     }]);
-}());
+})();

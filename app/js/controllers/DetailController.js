@@ -3,8 +3,8 @@
 
     /** Product detail view controller */
     angular.module('app')
-        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils', 'UserService',
-            function ($scope, $location, $routeParams, catalogService, productUtils, UserService) {
+        .controller('DetailController', ['$scope', '$location', '$routeParams', 'catalogService', 'ProductUtils',
+            function ($scope, $location, $routeParams, catalogService, productUtils) {
 
             $scope.product = {};
 
@@ -14,11 +14,7 @@
 
             $scope.quantity = 1;
 
-            /** Add select item to user cart. */
-            $scope.addToCart = function (pItem, qty) {
-                UserService.addToCart(pItem,qty);
-                $location.path('/basket');
-            };
+
 
             $scope.getImage = function (id) {
                 if (!id) {
@@ -28,8 +24,9 @@
                 }
             };
 
-            $scope.getCSSRating =  productUtils.getRatingCss;
 
+                /** Returns the CSS class for the average rating of a given product. */
+                $scope.getCSSRating = productUtils.getRatingCss;
 
         }]);
-}());
+})();

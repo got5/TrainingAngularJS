@@ -1,6 +1,3 @@
-/**
- * Created by pierremarot on 12/03/2014.
- */
 describe("Detail Book Page", function () {
 
     beforeEach(function(){
