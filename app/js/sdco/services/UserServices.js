@@ -1,6 +1,3 @@
-/**
- * Created by pierremarot on 13/03/2014.
- */
 (function () {
     "use strict";
 
@@ -19,10 +16,8 @@
 
             if (!currentUser) {
                 currentUser = $cookieStore.get('user');
-
                 if (!currentUser) {
-                   /*todo: complete what's missing*/
-
+                   /*todo complete what's missing*/
                 }else{
                     currentUser.cart = User.createCart($cookieStore.get('cart'));
                 }
@@ -91,4 +86,4 @@
         }];
     });
 
-}());
+})();

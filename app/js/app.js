@@ -64,4 +64,4 @@
         ]).run(function run( $http, $cookies ){
         $http.defaults.headers.common.Authentication = $cookies.token;
     });
-}());
+})();
