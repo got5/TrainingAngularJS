@@ -99,7 +99,7 @@
         }
     };
 
-    angular.module('sdcoServices')
+    angular.module('app')
         .value('User', {
             createUser: function (pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses) {
                 return new User(pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses);
