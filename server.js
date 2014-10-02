@@ -62,7 +62,8 @@ var getFromCol = function (col, pId) {
 
 
 app.use(express.compress());
-app.use(express.bodyParser());
+app.use(express.urlencoded());
+app.use(express.json());
 app.use(express.methodOverride());
 app.use(express.static(__dirname + '/app'));
 
