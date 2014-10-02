@@ -35,6 +35,14 @@
                     "rate": 2,
                     "user": "Pierre Marot",
                     "comment": "my comment..."
+                }, {
+                    "rate": 3,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
+                }, {
+                    "rate": 1,
+                    "user": "Pierre Marot",
+                    "comment": "my comment..."
                 }
             ]
 		}, 
@@ -100,12 +108,73 @@
 		}, 
 		 {
 			"id": 9,
-			"name": "Functional JavaScript",
-			"author": "Michael Fogus",
+			"name": "JavaScript Design Patterns",
+			"author": "Addy Osmani",
 			"price": 22.63,
 			"description": "Description...", 
 			"category": "book", 
 			"isNew": false,
 			"comments": null
-		}
+		},
+        {
+            "id": 10,
+            "name": "Functional JavaScript",
+            "author": "Michael Fogus",
+            "price": 22.63,
+            "description": "Description...",
+            "category": "book",
+            "isNew": false,
+            "comments": null
+        },
+        {
+            "id": 11,
+            "name": "ng-book",
+            "author": "Ari Lerner",
+            "price": 15.34,
+            "description": "The Complete Book on ANgularJS",
+            "category": "book",
+            "isNew": false,
+            "comments": [
+                {
+                    "rate": 4,
+                    "user": "Facon François",
+                    "comment": "very good"
+                }
+            ]
+
+        },
+        {
+            "id": 12,
+            "name": "Devenez un ninja avec AngularJS",
+            "author": "Ninja-Squad",
+            "price": 20,
+            "description": "Devenir un Ninja avec AngularJS.",
+            "category": "book",
+            "isNew": false,
+            "comments": [
+                {
+                    "rate": 4,
+                    "user": "Facon François",
+                    "comment": "En Français. Faites un geste pour Docteur Souris!"
+                }
+            ]
+
+        },
+        {
+            "id": 13,
+            "name": "Tapestry 5 - Rapid web application development in Java",
+            "author": "Igor Drobiazko",
+            "price": 20,
+            "description": "Tapestry 5 - Rapid web application development in Java is a comprehensive guide.",
+            "category": "book",
+            "isNew": false,
+            "comments": [
+                {
+                    "rate": 4,
+                    "user": "Facon François",
+                    "comment": "Must Read! "
+                }
+            ]
+
+        }
 ]

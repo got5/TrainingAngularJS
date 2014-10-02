@@ -3,9 +3,9 @@
 
     /** Basket view controller */
     angular.module('app')
-        .controller('BasketController', ['$scope', 'UserService', 'User' , function ($scope, UserService) {
-            $scope.items = UserService.getCurrentUser().cart.getItems();
-            $scope.nbItems = $scope.items.length;
+        .controller('BasketController', ['$scope', function ($scope) {
+            $scope.items = [];//todo
+            $scope.nbItem = 0; //todo
             $scope.getTotal = function () {
                 var total = 0;
                 for(var index = 0 ; index < $scope.items.length ; index++){
@@ -14,4 +14,4 @@
                 return total;
             };
         }]);
-}());
+})();

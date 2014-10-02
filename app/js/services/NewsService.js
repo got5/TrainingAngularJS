@@ -1,6 +1,3 @@
-/**
- * Created by pierremarot on 12/03/2014.
- */
 (function(){
     "use strict";
     angular.module('app')
@@ -10,4 +7,4 @@
             random: {method:'GET',params:{op:'random'}}
                 });
         }]);
-}());
+})();
