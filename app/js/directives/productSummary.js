@@ -1,14 +1,5 @@
-/**
- * Created by pierremarot on 14/03/2014.
- */
-
 (function(){
     "use strict";
-
-    /**
-     * Created by pierremarot on 04/04/2014.
-     */
-
 
 
     angular.module('app').directive('productSummary', ['ProductUtils', function (ProductUtils) {

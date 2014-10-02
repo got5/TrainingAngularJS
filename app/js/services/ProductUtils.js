@@ -51,4 +51,4 @@
 
     angular.module('app')
         .value('ProductUtils', new ProductUtils());
-}());
+})();
