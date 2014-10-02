@@ -123,9 +123,7 @@ module.exports = function(grunt){
             run: {
                 configFile: "config/protractor-conf.js",
                 options: {
-                    args: {
-
-                    }
+                    args: {}
                 }
             }
         },
