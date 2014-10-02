@@ -12,7 +12,7 @@ exports.config = {
 
     // The location of the selenium standalone server .jar file.
     // http://docs.seleniumhq.org/download/
-    seleniumServerJar: './scripts/selenium-server-standalone-2.40.0.jar',
+    seleniumServerJar: './scripts/selenium-server-standalone-2.41.0.jar',
     // The port to start the selenium server on, or null if the server should
     // find its own unused port.
     seleniumPort: 4444,
@@ -23,7 +23,7 @@ exports.config = {
     // the system property webdriver.chrome.driver. If null, selenium will
     // attempt to find chromedriver using PATH.
     //For Windows
-    //chromeDriver: './script/Chromedriver.exe',
+    chromeDriver: './scripts/chromedriver.exe',
 
     // Additional command line options to pass to selenium. For example,
     // if you need to change the browser timeout, use

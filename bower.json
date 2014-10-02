@@ -11,7 +11,7 @@
     "lodash": "~2.4.1",
     "angular-bindonce": "~0.3.0",
     "angular-cookies": "~1.2.15",
-    "angular-ui-bootstrap-bower": "~0.11.0",
+    "angular-ui-bootstrap-bower": "~0.10.0",
     "angular-translate": "2.0.1",
     "angular-resource": "~1.2.15"
   },
