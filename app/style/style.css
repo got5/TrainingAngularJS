@@ -5,6 +5,7 @@
 }
 
 .list-products {
+	display: inline-block;
 	margin-left: 150px;
 }
 

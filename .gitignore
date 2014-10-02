@@ -7,4 +7,3 @@ app/vendor
 .idea/
 npm-debug*.log
 prod/
-config/scripts/*
