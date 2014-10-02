@@ -10,4 +10,4 @@
                 $scope.products = result;
             });
         }]);
-}());
+})();
