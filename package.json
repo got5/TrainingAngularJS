@@ -2,7 +2,6 @@
   "name": "kawwa2-angularjs",
   "version": "0.0.0",
   "dependencies": {
-    "grunt-karma": "~0.5.x"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
