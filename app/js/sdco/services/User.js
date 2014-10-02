@@ -98,7 +98,7 @@
             }
         }
     };
-    //Change module name  to sdcoServices
+
     angular.module('app')
         .value('User', {
             createUser: function (pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses) {
