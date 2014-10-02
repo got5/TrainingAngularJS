@@ -5,8 +5,6 @@
     angular.module('app')
         .controller('CatalogController', ['$scope', '$location', 'catalogService','ProductUtils', 'UserService', function ($scope, $location, catalogService, ProductUtils, UserService) {
 
-
-
             /** Returns all products. */
             catalogService.getCatalog().success(function (result) {
                 $scope.products = result;
@@ -19,4 +17,4 @@
                  $location.path('/basket');
             };
         }]);
-}());
+})();
