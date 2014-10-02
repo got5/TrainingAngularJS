@@ -1,6 +1,3 @@
-/**
- * Created by pierremarot on 12/03/2014.
- */
 describe("Detail Controller",function(){
 
     var scope, ctrl, $httpBackend, catalogService,
