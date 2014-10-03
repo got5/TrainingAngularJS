@@ -1,7 +1,10 @@
 [
     { "id": 0, "author": "Bruno", "category": "Troll", "content": "I hate Javascript!", "likes": 8 },
     { "id": 1, "author": "Pierre", "category": "Success", "content": "My survey application is finally deployed.", "likes": 10 },
-    { "id": 2, "author": "Régis", "category": "True fact", "content": "Angular training is bullsh**.", "likes": 1200 },
-    { "id": 3, "author": "Régis", "category": "Hater", "content": "Unit Tests are useless", "likes": 1},
-    { "id": 4, "author": "Emmanuel", "category": "Romance", "content": "My world for Kazan", "likes": 200}
+    { "id": 2, "author": "Régis", "category": "True fact", "content": "Angular training is awesome!!!!", "likes": 1200 },
+    { "id": 3, "author": "Régis", "category": "Hater", "content": "Unit Tests are useless", "likes": -1},
+    { "id": 4, "author": "Emmanuel", "category": "Romance", "content": "My world for Kazan", "likes": 200},
+    { "id": 5, "author": "François", "category": "Authentification", "content": "A Real stateless example with Basic Authentification at https://github.com/ffacon/tapestry5-angular-demo/tree/V0.2", "likes": 7},
+    { "id": 6, "author": "François", "category": "OpenShift", "content": "Where Tapestry meet AngularJS ? at http://tapestryangular-frafac.rhcloud.com/#/phones", "likes": 77}
+
 ]
