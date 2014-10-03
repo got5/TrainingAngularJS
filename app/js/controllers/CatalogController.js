@@ -24,4 +24,4 @@
                  $location.path('/basket');
             };
         }]);
-}());
+})();

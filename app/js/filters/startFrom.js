@@ -1,7 +1,3 @@
-/**
- * Created by pierremarot on 14/03/2014.
- */
-
 (function(){
     "use strict";
     /** Filter used to return a collection which only elements at or after a given index. */
@@ -19,4 +15,4 @@
             return pArray;
         };
     });
-}());
+})();
