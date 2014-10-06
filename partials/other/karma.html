@@ -1,5 +1,5 @@
 <div class="bloc-content text-content">
-	<ul>
+	<ul class="small">
 		<li><i class="text-red">Karma</i> is a <span class="text-red">javascript test runner</span>, which runs on <i class="text-red">Node.js</i>.</li>
 		<li>Works by opening <span class="text-red">each browser specified in its configuration file</span>,
 			and by running Javascript tests in these browsers.</li>
@@ -9,14 +9,19 @@
 	</ul>
 
 <editor editor-options="{showPreview:false , compileCode:false , theme:'terminal' , height:260 }">
-<file type="ini" name="app.js"># Install karma
-# (use sudo or launch your terminal with administrator right)
-&gt; sudo npm install -g karma
-&gt; sudo npm install -g karma-chrome-launcher
-&gt; sudo npm install -g karma-jasmine
+<file type="ini" name="app.js">
+# Install Karma:
+$ npm install karma --save-dev
 
-# Can also be launched with a grunt task
-&gt; grunt test:unit</file>
+# Install plugins that your project needs:
+$ npm install karma-jasmine karma-chrome-launcher --save-dev
+
+# Run Karma:
+$ ./node_modules/karma/bin/karma start
+
+# Or in our Practical Works
+&gt; grunt test:unit
+</file>
 </editor>
     <p contenteditable></p>
 </div>
