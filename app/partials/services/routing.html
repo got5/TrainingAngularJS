@@ -29,6 +29,13 @@
 			});
 	}]);
 </file>
+<file type="javascript" name="listen.js">
+var myCtrl= function($scope, $log){
+	$scope.$on('$routeChangeStart', function(event, next, current) {
+		$log.info('next route:' + next);
+    });	
+}
+</file>
 </editor>
 
 	<p contenteditable></p></div>

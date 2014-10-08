@@ -4,8 +4,22 @@
 			double-curly expression <i>{ { expression } }</i>.</li>
 		<li><span class="text-red">$scope</span> properties not used in the view/template are not watched by Angular.</li>
         <br/>
-        <li>Having too many $watch can create performance issues for webpages</li>
-        <li>Use <span class="text-red">BindOnce</span> for static data : <a href="https://github.com/Pasvaz/bindonce" target=”_blank”>https://github.com/Pasvaz/bindonce</a> </li>
+        <li>Having too many $watch can create performance issues for webpages, then use <em>BindOnce</em>:
+	        <ul>
+	        	<li>
+					1.2.*: <a href="https://github.com/Pasvaz/bindonce" target=”_blank”>https://github.com/Pasvaz/bindonce</a>     		
+	        	</li>
+	        	<li>
+	        		1.3.16: 
+	        		<a href="http://swirlycheetah.com/native-bind-once-in-angularjs-1-3/" 
+	        		target="_blank"
+	        		>
+						natively implemented
+	        		</a>
+	        	</li>
+	        </ul>
+
+        </li>
 	</ul>
     <p contenteditable></p>
 </div>

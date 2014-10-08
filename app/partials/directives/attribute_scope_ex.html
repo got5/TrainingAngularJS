@@ -67,14 +67,39 @@ p.rating {font-size: 0.75em;}
 }</file>
 </editor>
 
-<!-- 
-
-		scope: {
-			value: "="
-		},
-		
-		
-		value="productMarkCss"
- -->
-
 <p contenteditable></p></div>
+<!--
+<div ng-app="app">
+<div class='html-content'><div ng-controller="ProductRatingCtrl">
+	<star-rating rating="{{productMarkCss}}">2 comments</star-rating>
+	Mark: 
+	<select ng-options="mark for mark in marks" ng-model="productMark" />
+</div></div></div>
+
+
+angular.module('app',[])
+.directive('starRating', function () {
+    return {
+		restrict: 'E',
+		transclude: true,
+        scope:{
+            rating:'@'   
+        },
+        template: "<p ng-class=\"rating\" ng-transclude></p>"
+    };
+});
+
+var ProductRatingCtrl = function($scope) {
+	
+	$scope.marks = [ "one", "two", "three", "four", "five" ];
+	
+	// Default CSS Class for the product.
+	$scope.productMark = "three";
+	
+	$scope.$watch('productMark', function() {
+		$scope.productMarkCss = "rating " + $scope.productMark;
+	});
+	
+};
+
+-->

@@ -29,22 +29,30 @@
 	<button-valid/>
 	
 	<!-- 
+
+<div ng-controller="ProductController" id="productForm">
+	Name *: <input type="text" id="inputName" ng-model="product.name" />,
+	Price *: <input type="number" id="inputPrice" ng-model="product.price" /> €,
+	Quantity *: <input type="number" id="inputQty" ng-model="product.qty" />
+	<br/> <i id="errorMsg">{{mandatoryMsg}}</i>
+</div>
+
 	
-	var ProductController = function($scope) {
+var ProductController = function($scope) {
 	
-		$scope.product = { name: null, price: null, qty: null };
-		
-	    $scope.$watch('product', function() {
-	        if ($scope.product.name && $scope.product.price && $scope.product.qty) {
-	            console.log('OK');
-	            $scope.mandatoryMsg = "";
-	        } else {
-	            console.log($scope.product.name + ":" + $scope.product.price + ":" + $scope.product.qty);
-	            $scope.mandatoryMsg = "All fields are mandatory!";
-	        }
-	    }, true);
-	};
+	$scope.product = { name: null, price: null, qty: null };
 	
+	$scope.$watch('product', function(newValue, oldValue){
+	    var name= newValue.name, price= newValue.price, qty= newValue.qty;
+	    if ( (!name || name=='') &&  (!price || price=='') && (!qty || qty=='') ){
+	        $scope.mandatoryMsg = "All fields are mandatory!";
+	    }else{
+	        $scope.mandatoryMsg = '';
+	    }
+	}, true);
+	
+	$scope.mandatoryMsg = "All fields are mandatory!";
+};
 	 -->
 	
 </div>

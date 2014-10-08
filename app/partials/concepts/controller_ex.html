@@ -49,3 +49,41 @@ var EditCtrl = function($scope) {
 	<button-valid/>
 	
 </div>
+
+<!--
+<div id="mainApp" ng-controller="MainCtrl">
+	Hello, {{currentUser.login}}
+	<tabset>
+		<tab heading="Mails" ng-controller="MailCtrl">
+			<div>You have {{nbMails}} mail(s) in your box.</div>
+		</tab>
+		<tab heading="Profile">
+			<div ng-controller="EditCtrl">
+				<input type="text" id="inputLogin" ng-model="tmpLogin"/>
+				<button class="btn" ng-click="editLogin()">Change login</button>
+			</div>
+		</tab>
+	</tabset>
+</div>
+
+
+var MainCtrl = function($scope) {
+	$scope.currentUser = { login: "BobSponge", 
+		mail: "sponge@water.bloub", mails: null };
+};
+
+var MailCtrl = function($scope) {
+	// Gets all user mails.
+	$scope.currentUser.mails = [ { id: 1, content: "Test" }]; // TODO
+	
+	$scope.nbMails = $scope.currentUser.mails.length;
+};
+
+var EditCtrl = function($scope) {
+	$scope.tmpLogin = $scope.currentUser.login;
+	
+	$scope.editLogin = function() {
+		$scope.currentUser.login= $scope.tmpLogin;
+	};
+};
+-->
