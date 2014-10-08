@@ -15,10 +15,11 @@
 	$scope.gotoWindowSlide = function() {
 		$location.path("/services/window");
 	};
-	
-	$scope.$on('$routeChangeStart', function(event, next, current) {
-        //TODO: Handler on route change.
-    });
+
+	$scope.$watch(
+		function(){return $location.url();}, 
+		function(newValue, oldValue){console.log(newValue);}
+	);	
 };
 </file>
 </editor>

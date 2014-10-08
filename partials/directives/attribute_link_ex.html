@@ -56,3 +56,22 @@
 </editor>
 
 <p contenteditable></p></div>
+
+<!--
+angular.module('app',[])
+    .directive('starRating', function () {
+    return {
+        link: function (scope, elem, attrs) {
+            elem.addClass('rating');
+            var rate;
+            switch(attrs.rating){
+                case "1": rate="one"; break;
+                case "2": rate="two"; break;
+                case "3": rate="three"; break;
+                case "4": rate="four"; break;
+                default: break;
+            }
+            elem.addClass(rate);
+        }
+    };
+});-->

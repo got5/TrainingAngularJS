@@ -176,10 +176,6 @@
         "content": "concepts/controller_inheritance"
     },
     {
-        "title": "Controllers inheritance",
-        "content": "concepts/controller_inheritance_2"
-    },
-    {
         "title": "To conclude about controllers...",
         "content": "concepts/controller_ex"
     },
@@ -295,10 +291,6 @@
         "content": "services/location_2"
     },
     {
-        "title": "Main Angular services: $location",
-        "content": "services/location_3"
-    },
-    {
         "title": "Main Angular services: $route",
         "content": "services/route"
     },
@@ -333,10 +325,6 @@
     {
         "title": "Services and Providers",
         "content": "services/services_providers"
-    },
-    {
-        "title": "Service injection",
-        "content": "services/injection"
     },
     {
         "title": "Creating Angular Services",
@@ -563,7 +551,7 @@
         "content": "directives/attribute_scope_ex"
     },
     {
-        "title": "Attribute link",
+        "title": "Attribute link vs controller",
         "content": "directives/attribute_link"
     },
     {
