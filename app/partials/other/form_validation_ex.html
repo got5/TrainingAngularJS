@@ -28,10 +28,10 @@
 	<alert type="error" ng-if="myForm.txtContent.$error.maxlength">
 		Complaint message must be five characters long or less!
 	</alert>
-	Your name: <input type="text" name="inputName" ng-model="complaint.name" required />
-	Your mail: <input type="email" name="inputMail" ng-model="complaint.mail" required />
-	Your complaint: <input type="text" name="txtContent" required ng-maxlength="5" ng-model="complaint.content" />
-	<button class="btn" ng-disabled="!myForm.$valid" ng-click="sendComplaint()">Send</button> 
+	Your name: <input type="text" name="inputName" ng-model="complaint.name" ng-required="true" />
+	Your mail: <input type="email" ng-required="true" name="inputMail" ng-model="complaint.mail" />
+	Your complaint: <input type="text" name="txtContent" ng-maxlength="5" ng-model="complaint.content" />
+	<button ng-disabled="!myForm.$valid" class="btn" ng-click="sendComplaint()">Send</button> 
 </form>
 
  -->
