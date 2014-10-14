@@ -89,7 +89,7 @@ module.exports = function(grunt){
                     '.htaccess',
                     '*.html',
                     'partials/**/*.html',
-                    'images/*',
+                    'images/**/*',
                     'fonts/*'
                 ],
                 dest: '<%= yeoman.dist %>/'
@@ -175,8 +175,7 @@ module.exports = function(grunt){
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/js/{,*/}*.js',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                        '<%= yeoman.dist %>/js/{,*/}*.js'
                     ]
                 }
             }
