@@ -5,18 +5,29 @@
 	</ul>
 
 	<ul
-		ng-init="ids=['zh1bwozs/2/']; imgs=['local6.jpg' ]"
+		style="margin-bottom: 50px"
+		ng-init="
+			ids=['zh1bwozs/2/']; 
+			imgs=['local6'];
+			displayLinks= {};
+			"
 	>
 		<li ng-repeat="img in imgs" style="display:inline-block">
-			<a
-				ng-href="http://jsfiddle.net/{{ids[$index]}}"
-				target="_blank"
+			<ul 
+				class="sublinks" ng-show="displayLinks[img]"
+				ng-mouseenter="displayLinks[img]=true"
+				ng-mouseleave="displayLinks[img]=false"
 			>
-				<img 
-					style="width: 200px; height: 200px; margin: 5px;" 
-					ng-src="images/binding/{{img}}"
-				/>
-			</a>
+				<li ><a ng-href="images/binding/{{img}}.jpg" target="_check">as image</a></li>
+				<li ><a ng-href="http://jsfiddle.net/{{ids[$index]}}" target="_blank">as fiddle</a></li>
+			</ul>
+			<img 
+				style="width: 200px; height: 200px; margin: 5px;" 
+				ng-src="images/binding/{{img}}.jpg"
+				ng-mouseenter="displayLinks[img]=true"
+				ng-mouseleave="displayLinks[img]=false"
+			>	
+			</img>
 		</li>
 	</ul>	
 
