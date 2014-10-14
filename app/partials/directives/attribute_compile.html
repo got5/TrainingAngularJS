@@ -1,12 +1,16 @@
 <div class="bloc-content text-content">
-	<ul>
+	<ul class="small">
         <li>Used to <span class="text-red">transform the template DOM</span> before it is compiled.</li>
         <li>Can have optional following parameters (identified by their order):</li>
 		<ol>
-			<li><i class="text-red">tElement</i>: Template element.</li>
-			<li><i class="text-red">tAttrs</i>: Template attributes.</li>
+			<li><i class="text-red">element</i>: Template element.</li>
+			<li><i class="text-red">attrs</i>: Template attributes.</li>
 			<li><i class="text-red">transclude</i>: Transclude function.</li>
 		</ol>
+		<li>
+			The <em>link</em> attribute is ignored as soon as the <em>compile</em> function is defined, 
+			but <em>compile</em> can return <em>link</em> if needed
+		</li>
 	</ul>
 		
 <editor editor-options="{showPreview:false , showTabs:true , height:280, jsFiddle:true, module:'app' }">

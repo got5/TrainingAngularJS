@@ -10,11 +10,11 @@
 	<file type="javascript" name="mailCtrl.js">var MailCtrl = function($scope) {
 	$scope.$watch('user', function() {
         if($scope.user.email == $scope.user.email2){
-            $scope.myForm.email.$setValidity('samemail', false);
-            $scope.myForm.email2.$setValidity('samemail', false);
-        } else {
             $scope.myForm.email.$setValidity('samemail', true);
             $scope.myForm.email2.$setValidity('samemail', true);
+        } else {
+            $scope.myForm.email.$setValidity('samemail', false);
+            $scope.myForm.email2.$setValidity('samemail', false);
         }
     }, true);
 };
