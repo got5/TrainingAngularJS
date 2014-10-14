@@ -3,5 +3,21 @@
 		<li><i class="text-red">=</i> or <i class="text-red">=propertyName</i>: Two-way data binding between a parent scope
 			property and a local scope property.</li>
 	</ul>
-	<img src="images/b43d0c9f.scope_local_=.png" class="back-image" width="1000" />
+
+	<ul
+		ng-init="ids=['zh1bwozs/1/']; imgs=['local5.jpg']"
+	>
+		<li ng-repeat="img in imgs" style="display:inline-block">
+			<a
+				ng-href="http://jsfiddle.net/{{ids[$index]}}"
+				target="_blank"
+			>
+				<img 
+					style="width: 200px; height: 200px; margin: 5px;" 
+					ng-src="/images/binding/{{img}}"
+				/>
+			</a>
+		</li>
+	</ul>	
+
 <p contenteditable></p></div>

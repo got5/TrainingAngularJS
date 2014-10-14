@@ -3,7 +3,24 @@
 		<li><i class="text-red">@</i> or <i class="text-red">@propertyName</i>: Binds the value of a directive attribute
 			to a local scope property (<span class="text-red">one-way databinding</span>). The DOM 
 			attribute is considered a <span class="text-red">String</span>.</li>
+		<li>Click on images below</li>
 	</ul>
-	<img src="images/4043540a.scope_local_@.png" class="back-image" width="1000" />
-    <p>Find the error in the image</p>
-<p contenteditable></p></div>
+
+	<ul
+		ng-init="ids=['pyqt606y', '3fk3cLer/1/', 'f6g4koh6/1/', 'pyfdL978/1/']; imgs=['local1.jpg', 'local2.jpg', 'local3.jpg', 'local4.jpg']"
+	>
+		<li ng-repeat="img in imgs" style="display:inline-block">
+			<a
+				ng-href="http://jsfiddle.net/{{ids[$index]}}"
+				target="_blank"
+			>
+				<img 
+					style="width: 200px; height: 200px; margin: 5px;" 
+					ng-src="/images/binding/{{img}}"
+				/>
+			</a>
+		</li>
+	</ul>
+
+	<p contenteditable></p>
+</div>

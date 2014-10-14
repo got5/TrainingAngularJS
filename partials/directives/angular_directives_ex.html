@@ -42,6 +42,13 @@
 
 solution simple
 
+<div ng-controller="SurveyCtrl">
+
+<h3>Survey application</h3>
+
+<form name="formSurvey">
+	Name: <input ng-required="true" type="text"/><br/> <br/>
+	
 	<div ng-repeat="category in categories">
 		{{category}}:
 		<span ng-repeat="note in notes">
@@ -51,7 +58,12 @@ solution simple
 		</span>
 		<input type="text" placeholder="Comment..."
 			ng-show="survey[category] < 3"/>
-	</div>
+	</div>	
+	
+	<button class="btn">Submit poll</button>
+</form>
+    
+</div>
 
 initial avec css class
 

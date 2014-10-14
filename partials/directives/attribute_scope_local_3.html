@@ -3,5 +3,22 @@
 		<li><i class="text-red">&</i> or <i class="text-red">&propertyName</i>: Executes an expression in the context
 			of the parent scope.</li>
 	</ul>
-	<img src="images/787193c7.scope_local_&.png" class="back-image" width="1000" />
+
+	<ul
+		ng-init="ids=['zh1bwozs/2/']; imgs=['local6.jpg' ]"
+	>
+		<li ng-repeat="img in imgs" style="display:inline-block">
+			<a
+				ng-href="http://jsfiddle.net/{{ids[$index]}}"
+				target="_blank"
+			>
+				<img 
+					style="width: 200px; height: 200px; margin: 5px;" 
+					ng-src="/images/binding/{{img}}"
+				/>
+			</a>
+		</li>
+	</ul>	
+
+
 <p contenteditable></p></div>

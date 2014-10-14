@@ -559,10 +559,6 @@
         "content": "directives/attribute_compile"
     },
     {
-        "title": "Attribute controller",
-        "content": "directives/attribute_controller"
-    },
-    {
         "title": "Attribute require",
         "content": "directives/attribute_require"
     },
