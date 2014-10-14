@@ -7,18 +7,29 @@
 	</ul>
 
 	<ul
-		ng-init="ids=['pyqt606y', '3fk3cLer/1/', 'f6g4koh6/1/', 'pyfdL978/1/']; imgs=['local1.jpg', 'local2.jpg', 'local3.jpg', 'local4.jpg']"
+		style="margin-bottom: 50px"
+		ng-init="
+			ids=['pyqt606y', '3fk3cLer/1/', 'f6g4koh6/1/', 'pyfdL978/1/'];
+			imgs=['local1', 'local2', 'local3', 'local4'];
+			displayLinks= {};
+		"
 	>
 		<li ng-repeat="img in imgs" style="display:inline-block">
-			<a
-				ng-href="http://jsfiddle.net/{{ids[$index]}}"
-				target="_blank"
+			<ul 
+				class="sublinks" ng-show="displayLinks[img]"
+				ng-mouseenter="displayLinks[img]=true"
+				ng-mouseleave="displayLinks[img]=false"
 			>
-				<img 
-					style="width: 200px; height: 200px; margin: 5px;" 
-					ng-src="images/binding/{{img}}"
-				/>
-			</a>
+				<li ><a ng-href="images/binding/{{img}}.jpg" target="_check">as image</a></li>
+				<li ><a ng-href="http://jsfiddle.net/{{ids[$index]}}" target="_blank">as fiddle</a></li>
+			</ul>
+			<img 
+				style="width: 200px; height: 200px; margin: 5px;" 
+				ng-src="images/binding/{{img}}.jpg"
+				ng-mouseenter="displayLinks[img]=true"
+				ng-mouseleave="displayLinks[img]=false"
+			>	
+			</img>
 		</li>
 	</ul>
 

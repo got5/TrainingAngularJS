@@ -292,6 +292,18 @@ li {
 	line-height: 40px;
 }
 
+ul.sublinks{
+    position: relative;
+    top: 200px;
+    height: 0;
+    border: 0;
+}
+
+ul.sublinks li{
+    display:inline-block;
+    font-size: small;
+}
+
 td {
 	vertical-align: top;
 	text-align: justify;
