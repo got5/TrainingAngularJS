@@ -174,6 +174,7 @@ module.exports = function(grunt){
         rev: {
             dist: {
                 files: {
+                    // don't treat images subfolders (so images names can be use as is if needed)
                     src: [
                         '<%= yeoman.dist %>/js/{,*/}*.js',
                         '<%= yeoman.dist %>/images/*.{png,jpg,jpeg,gif,webp,svg}'
