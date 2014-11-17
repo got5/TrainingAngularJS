@@ -61,6 +61,3 @@ Launch server
 Application is now running in :
 
 [localhost:3000](localhost:3000)
-
-
-See [got5/Angular-Libraries/angular-training](https://github.com/got5/Angular-Librairies/tree/master/angular-training)
