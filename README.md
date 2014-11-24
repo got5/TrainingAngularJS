@@ -75,7 +75,6 @@ Here are the solutions for the different online exercice :
 * [Slide 129 - Creating new directives](https://gist.github.com/Gillespie59/83721133ea613e8f590e)
 * [Slide 136 - Let's use Angular Filters!](https://gist.github.com/Gillespie59/14e45c646d3823778148)
 * [Slide 143 - Using form validation methods](https://gist.github.com/Gillespie59/d5fb574a13cd6ca1b9ac)
-* 
 
 
 
