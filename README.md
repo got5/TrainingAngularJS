@@ -61,3 +61,8 @@ Launch server
 Application is now running in :
 
 [localhost:3000](localhost:3000)
+
+## Online exercices
+Here are the solutions for the different online exercice : 
+
+* [Slide 23 - Two-Way Data Binding Magic](https://gist.github.com/Gillespie59/0bde9a50b52fcd00cb9e)
