@@ -66,3 +66,17 @@ Application is now running in :
 Here are the solutions for the different online exercice : 
 
 * [Slide 23 - Two-Way Data Binding Magic](https://gist.github.com/Gillespie59/0bde9a50b52fcd00cb9e)
+* [Slide 28 - Expressions in AngularJS](https://gist.github.com/Gillespie59/b939769c694082de46e9)
+* [Slide 38 - Use of $watch by Angular](https://gist.github.com/Gillespie59/ea0126c8e1329a6ad0d6)
+* [Slide 45 - To conclude about controllers..](https://gist.github.com/Gillespie59/e9449f640618ce7e962f)
+* [Slide 66 - Main Angular services: $http](https://gist.github.com/Gillespie59/99ee21dbf972454d01d9)
+* [Slide 114 - Using the link function](https://gist.github.com/Gillespie59/1662dafec3c751ecb8a1)
+* [Slide 124 - Using the scope property](https://gist.github.com/Gillespie59/b8456da17b466b4ec48a)
+* [Slide 129 - Creating new directives](https://gist.github.com/Gillespie59/83721133ea613e8f590e)
+* [Slide 136 - Let's use Angular Filters!](https://gist.github.com/Gillespie59/14e45c646d3823778148)
+* [Slide 143 - Using form validation methods](https://gist.github.com/Gillespie59/d5fb574a13cd6ca1b9ac)
+* 
+
+
+
+
