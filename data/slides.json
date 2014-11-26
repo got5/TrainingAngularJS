@@ -61,6 +61,10 @@
         "content": "introduction/angular_js_plus"
     },
     {
+        "title": "Some considerations before starting an AngularJs project!",
+        "content": "introduction/angular_considerations"
+    },    
+    {
         "content": "concepts/concepts_title"
     },
     {
