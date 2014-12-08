@@ -65,7 +65,7 @@ Application is now running in :
 ## Online exercices
 Here are the solutions for the different online exercice : 
 
-* [Slide 23 - Two-Way Data Binding Magic](https://gist.github.com/Gillespie59/0bde9a50b52fcd00cb9e)
+* [Slide 23 - Two-Way Data Binding Magic](https://gist.github.com/got5/d699b5a4362d057fe995)
 * [Slide 28 - Expressions in AngularJS](https://gist.github.com/Gillespie59/b939769c694082de46e9)
 * [Slide 38 - Use of $watch by Angular](https://gist.github.com/Gillespie59/ea0126c8e1329a6ad0d6)
 * [Slide 45 - To conclude about controllers..](https://gist.github.com/Gillespie59/e9449f640618ce7e962f)
