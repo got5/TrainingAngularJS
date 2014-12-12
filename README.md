@@ -71,7 +71,7 @@ Here are the solutions for the different online exercice :
 	*(https://gist.github.com/got5/a8fade483f338178dd7b) 
 * [Slide 39 - Use of $watch by Angular](https://gist.github.com/got5/a19fe6e66c3c9c927fad)
 * [Slide 46 - To conclude about controllers..](https://gist.github.com/got5/65a58721d7ac7a2b8db3)
-* [Slide 66 - Main Angular services: $http](https://gist.github.com/Gillespie59/99ee21dbf972454d01d9)
+* [Slide 67 - Main Angular services: $http](https://gist.github.com/got5/e5eb8798533505f87329)
 * [Slide 114 - Using the link function](https://gist.github.com/Gillespie59/1662dafec3c751ecb8a1)
 * [Slide 124 - Using the scope property](https://gist.github.com/Gillespie59/b8456da17b466b4ec48a)
 * [Slide 129 - Creating new directives](https://gist.github.com/Gillespie59/83721133ea613e8f590e)
