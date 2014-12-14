@@ -74,7 +74,7 @@ Here are the solutions for the different online exercice :
 * [Slide 67 - Main Angular services: $http](https://gist.github.com/got5/e5eb8798533505f87329)
 * [Slide 114 - Native Angular directives](https://gist.github.com/got5/ad8e4ccf9a5022509a7a)
 * [Slide 115 - Using the link function](https://gist.github.com/Gillespie59/1662dafec3c751ecb8a1)
-* [Slide 124 - Using the scope property](https://gist.github.com/Gillespie59/b8456da17b466b4ec48a)
+* [Slide 125 - Using the scope property](https://gist.github.com/got5/378724ebc7fbf37628a0)
 * [Slide 129 - Creating new directives](https://gist.github.com/Gillespie59/83721133ea613e8f590e)
 * [Slide 136 - Let's use Angular Filters!](https://gist.github.com/Gillespie59/14e45c646d3823778148)
 * [Slide 143 - Using form validation methods](https://gist.github.com/Gillespie59/d5fb574a13cd6ca1b9ac)
