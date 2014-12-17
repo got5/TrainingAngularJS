@@ -24,7 +24,7 @@
             <div class="photo-data">
                 <p>
                     <a ng-href="#/book/{{product.id}}">
-                        <img class="photo" ng-src="img/catalog/{{product.id}}.jpg" />
+                        <img class="photo" ng-src="{{getImage(product.id)}}" />
                     </a>
                 </p>
             </div>

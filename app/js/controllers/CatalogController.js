@@ -12,6 +12,8 @@
 
             $scope.getRatingClass = ProductUtils.getRatingCss;
 
+            $scope.getImage = ProductUtils.getImage;
+
             $scope.addToCart = function(pItem){
                  UserService.addToCart(pItem,1);
                  $location.path('/basket');

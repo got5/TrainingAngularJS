@@ -14,19 +14,10 @@
 
             $scope.quantity = 1;
 
+            $scope.getImage = productUtils.getImage;
 
-
-            $scope.getImage = function (id) {
-                if (!id) {
-                    return "";
-                } else {
-                    return "/img/catalog/" + id + ".jpg";
-                }
-            };
-
-
-                /** Returns the CSS class for the average rating of a given product. */
-                $scope.getCSSRating = productUtils.getRatingCss;
+            /** Returns the CSS class for the average rating of a given product. */
+            $scope.getCSSRating = productUtils.getRatingCss;
 
         }]);
 })();
