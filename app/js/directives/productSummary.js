@@ -13,12 +13,14 @@
             link: function (scope, element, attrs) {
                 scope.getRatingClass = ProductUtils.getRatingCss;
             },
-            controller: ['$scope',
+
+            controller: ['$scope','$location',
                 'UserService',
-                function ($scope,UserService) {
+                function ($scope,$location,UserService) {
 
                     $scope.addToCart = function (pItem) {
                         UserService.addToCart(pItem, 1);
+                         $location.path('/basket');
                     };
                 }]
         }
