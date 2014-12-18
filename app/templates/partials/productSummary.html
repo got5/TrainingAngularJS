@@ -13,7 +13,7 @@
         <a ng-href="#/book/{{product.id}}" title="See Product sheet">{{product.name}}</a>
     </h3>
 
-    <p ng-class="getRatingClass(product)">
+    <p ng-class="getRatingClass(product.comments)">
 		
 		<span ng-show="product.comments">
 			<a href="#comments">{{product.comments.length}} comment(s)</a>
