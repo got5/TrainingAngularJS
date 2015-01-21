@@ -71,7 +71,7 @@ Here are the solutions for the different online exercice :
 * [Slide 46 - To conclude about controllers..](https://gist.github.com/got5/65a58721d7ac7a2b8db3)
 * [Slide 67 - Main Angular services: $http](https://gist.github.com/got5/e5eb8798533505f87329)
 * [Slide 114 - Native Angular directives](https://gist.github.com/got5/ad8e4ccf9a5022509a7a)
-* [Slide 115 - Using the link function](https://gist.github.com/Gillespie59/1662dafec3c751ecb8a1)
+* [Slide 115 - Using the link function](https://gist.github.com/got5/19d7a41a8b81c1200bdf)
 * [Slide 125 - Using the scope property](https://gist.github.com/got5/378724ebc7fbf37628a0)
 * [Slide 130 - Creating new directives](https://gist.github.com/got5/c93cecb0ed1f71a7ad67)
 * [Slide 137 - Let's use Angular Filters!](https://gist.github.com/got5/136742dc4170e184476b)
