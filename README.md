@@ -77,6 +77,8 @@ Here are the solutions for the different online exercice :
 * [Slide 137 - Let's use Angular Filters!](https://gist.github.com/got5/136742dc4170e184476b)
 * [Slide 144 - Using form validation methods](https://gist.github.com/got5/fabd51ee4221ebfc347a)
 
+## links
 
-
-
+* [Immediately-invoked Function Expressions](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailnamespacing)
+* [support for script-async for IE>10](http://caniuse.com/#feat=script-async)
+* [difference between angular-route and angular-ui-router](http://www.meanstack.co/difference-between-angular-route-and-angular-ui-router/)
