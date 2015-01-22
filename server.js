@@ -49,10 +49,9 @@ var auth = function (login) {
         var user = users[index];
         if (user.login == login) {
             return user;
-        } else {
-            return false;
-        }
+        } 
     }
+    return false;
 };
 
 var getFromCol = function (col, pId) {
