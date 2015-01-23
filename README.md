@@ -84,3 +84,6 @@ Here are the solutions for the different online exercice :
 * [difference between angular-route and angular-ui-router](http://www.meanstack.co/difference-between-angular-route-and-angular-ui-router/)
 * [ESLint rules for AngularJS project](https://github.com/Gillespie59/angularjs-eslint)
 * [How to integrate ESLint inside SuublimeText (French)](http://gillespie59.github.io/2015/01/03/eslint-sublime-text.html)
+* [Debugging AngularJS Apps from the Console](http://ionicframework.com/blog/angularjs-console/)
+* [L'API Promise d'AngularJS (FR)](http://www.frangular.com/2012/12/api-promise-angularjs.html)
+* [$http success versus then](http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/)
