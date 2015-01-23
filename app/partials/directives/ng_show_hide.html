@@ -16,4 +16,14 @@
 </file>
 </editor>
 
+<ul>
+		<li>
+ng-show/ng-hide does not remove the elements from DOM. It uses CSS styles to hide/show elements (note: you might need to add your own classes). This way your handlers that were attached to children will not be lost.
+		</li>
+
+		<li>
+ng-if creates a child scope while ng-show/ng-hide does not
+		</li>
+</ul
+
 <p contenteditable></p></div>
