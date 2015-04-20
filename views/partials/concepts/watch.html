@@ -1,0 +1,28 @@
+<div>
+	<h1>$watch</h1>
+	<ul>
+		<li><strong>$scope.$watch</strong>:</li>
+		<ul>
+			<li>Offers you to call a function when a value attached to the $scope has changed.</li>
+			<li>Watched expression is called on every call to <strong>$digest</strong>, and compared with previous value.</li>
+		</ul>
+	</ul>
+			
+	<sdco-editor compile="false" read-only="true" js-fiddle="true">
+		<sdco-editor-tab type="javascript" heading="watch-ctrl.js">
+angular.module('sample', [])
+.controller('WatchCtrl', function($scope) {
+	//newValue and oldValue parameters are optionnal.
+	$scope.$watch('myValue', function(newValue, oldValue) {
+		$scope.logText = "Old value : " + oldValue;
+	});
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="index.html">
+&lt;div ng-app="sample" ng-controller="WatchCtrl"&gt;
+&lt;input type="text" ng-model="myValue"/&gt; {{logText}}
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

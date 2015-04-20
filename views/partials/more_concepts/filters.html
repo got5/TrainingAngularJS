@@ -1,0 +1,23 @@
+<div>
+
+	<h1> Using Angular Filters </h1>
+
+	<ul>
+		<li>Angular filters are used to <strong>format data</strong> for display to the user.</li>
+		<li>They are especially used to format <strong>binding expressions in your templates</strong>.</li>
+		<li>Filters can be <strong>chained</strong>, and can also take <strong>optional arguments</strong>.</li>
+	</ul>
+		
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="filter.html">
+&lt;div ng-init="unfilteredPrice = '27.95'"&gt;
+	Price: {{unfilteredPrice}} &lt;br/&gt;
+	Price: {{unfilteredPrice | currency}} &lt;br/&gt;
+	Price: {{unfilteredPrice | number:5}} &lt;br/&gt;
+	Price: {{unfilteredPrice | number:0 | currency}} &lt;br/&gt;
+	Price: {{unfilteredPrice | currency | number:4}} &lt;br/&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

@@ -1,0 +1,29 @@
+
+<div>
+
+	<h1>The service $location</h1>
+
+	<sdco-editor compile="true" compile-js-first="true" >
+	    <sdco-editor-tab type="html" heading="location.html" >
+&lt;div ng-controller="LocationCtrl"&gt;
+    Current url is : &lt;i&gt;{{currentURL}}&lt;/i&gt;. 
+    &lt;br/&gt;
+    &lt;button class="btn" ng-click="gotoWindowSlide()"&gt;
+        Go to $window service slide
+    &lt;/button&gt;
+&lt;/div&gt;</sdco-editor-tab>
+	<sdco-editor-tab type="javascript" heading="location.js">
+angular.module('trainingAJ')
+.exoController('LocationCtrl', function($scope, $location) {
+
+	$scope.currentURL = $location.url();
+	
+	$scope.gotoWindowSlide = function() {
+		$location.path("/slide69");
+	};
+
+});
+		</sdco-editor-tab>
+	</sdco-editor>
+
+	</div>

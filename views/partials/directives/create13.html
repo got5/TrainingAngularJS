@@ -1,0 +1,43 @@
+<div class="bloc-content text-content">
+
+	<h1> The <i>require</i> attribute </h1>
+	<ul>
+		<li> 
+			It's possible to have dependencies between directives 
+			<sdco-notes>
+				As an example, in this support, the editor is a directive, 
+				and a tab is a directive inside editor
+			</sdco-notes>
+		</li>
+		<li> In such a case, the require attribute specifies that a directive requires an other one </li>
+		<li> 
+			This declaration implies that the controller of the <strong>required</strong> directive
+			will be injected in the one which requires it (as the fourth argument of the linking function)
+		</li>
+		<li>If no controller is found, an error is raised. You can use <i>?</i> prefix to make the
+			dependency optional.</li>
+		<li>Use <i>^</i> prefix to look for the controller on parent elements as well.</li>
+	</ul>
+		
+<sdco-editor compile="false">
+<sdco-editor-tab type="javascript" heading="directives.js">
+application.directive('ngSwitchDefault', function() {
+	return {
+		require: [ '^ngSwitch' ], 
+		link: function (scope, element, attrs, controllers) {
+			// controllers[0].callMethod(...);
+		}
+	};
+});
+
+application.directive('input', function() {
+	return {
+		require: '?ngModel',
+		link: function (scope, element, attrs, controllers) { }
+	};
+});
+
+</sdco-editor-tab>
+</sdco-editor>
+
+</div>

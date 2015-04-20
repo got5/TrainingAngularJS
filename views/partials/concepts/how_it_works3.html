@@ -1,0 +1,24 @@
+<div>
+	<h1>How does AngularJS work?</h1>
+	<ul>
+		<li>Directive <strong>ng-init</strong> is used to specify initialization tasks.</li>
+		<li>In this case, variable <strong>$scope.name</strong> gets value <i>World</i>.</li>
+		<li><i>{ {name} }</i> is turned into <i>World</i>.</li>
+	</ul>
+	
+
+  <sdco-editor compile="false" compile-on-demand="false" width="800px" height="150px">
+  	<sdco-editor-tab type="html" heading="index.html">
+&lt;!DOCTYPE html&gt;  
+&lt;html ng-app&gt;
+	&lt;head/&gt;
+	&lt;body&gt;
+		&lt;p ng-init="name='World'"&gt;Hello {{name}}!&lt;/p&gt;
+		
+		&lt;script src="lib/angular/angular.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+  	</sdco-editor-tab>
+  </sdco-editor>
+
+</div>

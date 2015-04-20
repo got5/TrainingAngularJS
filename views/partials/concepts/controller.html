@@ -1,0 +1,55 @@
+<div class="bloc-content text-content">
+	<h1>Introduction to Controllers</h1>
+
+	<ul>
+		<li>Controllers are JavaScript functions</li>
+		<li>They have to be declared in your module to be accessible</li>
+		<li>They are used to:</li>
+		<ul>
+			<li>Set up the initial state of a $scope object.</li>
+			<li>Add behavior to the $scope object</li>
+			<li>
+				They don't have to contain any business logic, 
+				but do the link with your services, which contain business logic
+			</li>
+		</ul>
+		<li>
+			<strong>Remark</strong>: use them as less as possible because
+			they will be removed with <i>angular 2</i>
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false" read-only="true" js-fiddle="true">
+		<sdco-editor-tab type="javascript" heading="test-ctrl.js">
+angular.module('sample', [])
+.controller('ClassicController', function($scope) {
+	$scope.welcomeMsg = 'Hello World';
+	
+	$scope.onButtonClicked = function() {
+		console.log('button clicked');
+	};
+})
+.service('myService', function(){
+	this.welcomeMsg= 'Hello world';
+
+	this.onButtonClicked= function(){
+		console.log('button clicked');
+	};
+})
+.controller('BetterController', ['$scope','myService', function($scope, myService){
+	$scope.service= myService;
+}]);
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="view.html">
+&lt;div ng-app="sample" &gt;
+	&lt;div ng-controller="ClassicController"&gt;
+		&lt;input type="text" ng-click="onButtonClicked()"/&gt; {{welcomeMsg}}
+	&lt;/div&gt;
+	&lt;div ng-controller="BetterController"&gt;
+		&lt;input type="text" ng-click="service.onButtonClicked()"/&gt; {{service.welcomeMsg}}
+	&lt;/div&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	<sdco-editor>
+
+</div>

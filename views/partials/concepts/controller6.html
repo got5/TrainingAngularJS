@@ -1,0 +1,95 @@
+<div>
+
+	<h1>To conclude about controllers...</h1>
+
+	<h2>Exercise</h2>
+
+	<p> 
+		Complete the <i>user.js</i> file by linking 
+		the controllers to the appropriate HTML elements.
+	</p>
+
+			
+	<sdco-editor compile="false" read-only="true" js-fiddle="true">
+		<sdco-editor-tab type="html" heading="user.html">
+&lt;div ng-app="sample" id="mainApp"&gt;
+	Hello, {{currentUser.login}}
+	&lt;tabset&gt;
+		&lt;tab heading="Mails"&gt;
+			&lt;div&gt;You have {{nbMails}} mail(s) in your box.&lt;/div&gt;
+		&lt;/tab&gt;
+		&lt;tab heading="Profile"&gt;
+			&lt;div&gt;
+				&lt;input type="text" id="inputLogin" ng-model="tmpLogin"/&gt;
+				&lt;button class="btn"&gt;Change login&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/tab&gt;
+	&lt;/tabset&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="user.js">
+
+angular.module('sample', [])
+.controller('MainCtrl', function($scope) {
+	$scope.currentUser = { 
+		login: "BobSponge", 
+		mail: "sponge@water.bloub", mails: null 
+	};
+})
+.controller('MailCtrl', function($scope) {
+	// Gets all user mails.
+	$scope.currentUser.mails = [ { id: 1, content: "Test" }]; // TODO
+	
+	$scope.nbMails = $scope.currentUser.mails.length;
+})
+.controller('EditCtrl', function($scope) {
+	$scope.tmpLogin = $scope.currentUser.login;
+	
+	$scope.editLogin = function() {
+		// TODO: update login.
+	};
+});
+
+		</sdco-editor-tab>
+	</sdco-editor>
+	
+</div>
+
+<!--
+<div ng-app="sample" ng-controller="MainCtrl" id="mainApp">
+	Hello, {{currentUser.login}}
+	<tabset>
+		<tab heading="Mails" ng-controller="MailCtrl">
+			<div>You have {{nbMails}} mail(s) in your box.</div>
+		</tab>
+		<tab heading="Profile" ng-controller="EditCtrl">
+			<div>
+				<input type="text" id="inputLogin" ng-model="tmpLogin"/>
+				<button class="btn" ng-click="editLogin()" >Change login</button>
+			</div>
+		</tab>
+	</tabset>
+</div>
+
+
+angular.module('sample', [])
+.controller('MainCtrl', function($scope) {
+	$scope.currentUser = { 
+		login: "BobSponge", 
+		mail: "sponge@water.bloub", mails: null 
+	};
+})
+.controller('MailCtrl', function($scope) {
+	// Gets all user mails.
+	$scope.currentUser.mails = [ { id: 1, content: "Test" }]; // TODO
+	
+	$scope.nbMails = $scope.currentUser.mails.length;
+})
+.controller('EditCtrl', function($scope) {
+	$scope.tmpLogin = $scope.currentUser.login;
+	
+	$scope.editLogin = function() {
+		$scope.currentUser.login= $scope.tmpLogin;
+	};
+});
+-->

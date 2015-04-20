@@ -1,0 +1,29 @@
+<div>
+
+	<h1>The service $location</h1>
+
+	<ul>
+		<li>
+		<a href="http://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a> 
+		is used any time your application needs to react to a change in the current URL or if 
+		you want to change the current URL in the browser.
+		</li>
+		<li>
+			<strong>Warning</strong>: 
+			Does not fully reload the page when browser URL is changed. 
+			To reload the page after changing the URL, use <strong>$window.location.href</strong>.
+		</li>
+		<li>
+			Use <strong>$location.path(path)</strong> to return or set <strong>path</strong> of current url.
+		</li>
+		<li>
+			Use <strong>$location.url(url)</strong> to return or set <strong>path, query string and hash</strong> 
+			<i>(e.g. /path?a=b#hash)</i> of current url.
+		</li>
+        <li>
+        	Reminder : Here the URL is about Angular Url, not absolute URL. 
+        	For that you can use <strong>$location.absUrl()</strong>
+        </li>
+	</ul>
+
+</div>

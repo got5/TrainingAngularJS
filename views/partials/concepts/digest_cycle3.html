@@ -1,0 +1,12 @@
+<div>
+	<h1>The $apply function </h1>
+	<ul>
+		<li>Takes a function or an Angular expression string, executes it, then call 
+			<strong>$scope.$digest</strong> to update any bindings or watchers.
+		</li>
+		<li> Generally transparent for the developper because automatically called by native angular components </li>
+		<li>Controller initialization, events like <strong>ng-click</strong>, <strong>$http</strong> callbacks are already 
+		wrapped in <strong>$scope.$apply()</strong>.</li>
+		<li>But can be sometimes necessary, typically in your own directives</li>
+	</ul>
+</div>

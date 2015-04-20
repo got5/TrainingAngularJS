@@ -1,0 +1,53 @@
+<div>
+
+    <h1> Services Decorators </h1>
+
+	<ul>
+        <li> <strong> ADVANCED CONCEPT </strong>: Should be used very rarely </li>
+        <li> 
+            Decorate an existing service means each reference to this service will be impacted, 
+            so be carefull with side effects
+        </li>
+		<li>
+            Ask yourself:
+            <ul>
+                <li>Can I Modify the service? yes -> then do it </li>
+                <li>Can I create a new service based on this one? yes -> then do it </li>
+                <li>No -> ok, start consider decorating your service... </li>
+            </ul>
+        </li>
+	</ul>
+		
+    <sdco-editor compile="false" js-fiddle="true">
+	   <sdco-editor-tab type="javascript" heading="log.js">
+angular.module('logApp', [])
+.value('configurationData',{mode: 'development'})
+.controller('LogCtrl',function($scope, $log, configurationData) {
+    $log.info('ProductionMode = ' + configurationData.mode);
+
+    configurationData.mode = 'release';
+
+    $log.info('ProductionMode = ' + configurationData.mode);
+})
+.config(['$provide', function($provide) {
+    $provide.decorator('$log', [ '$delegate', 'configurationData',function($delegate, config) {
+        return {
+            error : function(text) { return $delegate.error(text); },
+            warn : function(text) { return $delegate.warn(text); },
+            log: function(text) { return $delegate.log(text); },
+            info : function(text) {
+                if (config.mode == 'development') {
+                   $delegate.info("[INFO] " + text);
+                }
+            }
+        };
+    }]);
+}]);
+        </sdco-editor-tab>
+    <sdco-editor-tab type="html" heading="log.html">
+&lt;div ng-app="logApp" ng-controller="LogCtrl"&gt;
+&lt;/div&gt;
+</sdco-editor-tab>
+</sdco-editor>
+		
+	</div>

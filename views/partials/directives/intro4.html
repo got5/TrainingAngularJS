@@ -1,0 +1,27 @@
+<div class="bloc-content text-content">
+
+	<h1>Invoking a directive</h1>
+
+	<ul>
+		<li>Directives can be placed in:</li>
+		<ul>
+			<li>Element names (E).</li>
+			<li>Attributes (A).</li>
+			<li>Class names (C).</li>
+		</ul>
+		<li>However, most directives are restricted to <span>attribute</span> only.</li>
+	</ul>
+
+<sdco-editor compile="false">
+    <sdco-editor-tab type="html" heading="directive.html">
+&lt;span my-dir="exp"&gt;&lt;/span&gt;
+&lt;span class="my-dir: exp;"&gt;&lt;/span&gt;
+&lt;my-dir&gt;&lt;/my-dir&gt;
+&lt;!-- directive: my-dir exp --&gt;
+
+&lt;span ng-bind="name"&gt;&lt;/span&gt;
+&lt;!-- NOT &lt;ng-bind="name"&gt;&lt;/ng-bind&gt; --&gt;
+</sdco-editor-tab>
+</sdco-editor>
+
+</div>

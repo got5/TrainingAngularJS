@@ -1,0 +1,119 @@
+<div>
+
+    <h1> Creating new directives </h1>
+
+    <h2> Exercise </h2>
+
+	<p>
+		You will have to complete the confirmClick directive which own several concepts:
+	</p>
+    <ul>
+        <li> Isolated scope with a callback attribute ( <i>&amp;</i> )</li>
+        <li> Play with <i>priority</i> and <i>terminal</i> attributes</li>
+    </ul>
+		
+<sdco-editor compile="false" js-fiddle="true">
+<sdco-editor-tab type="html" heading="confirm.html" >
+&lt;div ng-app="app" ng-controller="ConfirmCtrl"&gt;
+    &lt;button 
+        class="btn" 
+        ng-click="login=''"
+        confirm-click confirm-action="confirmFn(exp)"
+    &gt;
+            Reset login
+    &lt;/button&gt;
+    Login: {{login}}
+&lt;/div&gt;
+</sdco-editor-tab>
+<sdco-editor-tab type="javascript" heading="confirm.js">
+angular.module('app',[])
+.controller('ConfirmCtrl', function($scope, $window){
+
+    $scope.login='Bob';
+
+    //This callback displays a confirm dialog
+    // and evaluate the expression in parameter
+    // in case of confirmation.
+    $scope.confirmFn= function(expression){
+        console.log(expression);
+        if ($window.confirm('Are you sure?')){
+            $scope.$apply(function(){
+                $scope.$eval(expression);                
+            });
+        }
+    };
+})
+.directive('confirmClick', function() {
+    return {
+        restrict: 'A',
+        // TODO: Be sure that the ngClick directive
+        // Will not be compiled
+
+        // TODO: Use an isolated scope
+        // with an attribute which will call
+        // a callback function
+        // attribute name: confirmAction
+
+        link: function(scope, elm, attrs) {
+            // TODO: Get the expression used on ngClick
+            // (use attrs to retrieve it)
+            
+            // TODO: When the element is clicked, call the confirmAction
+            // function (scope.confirmAction({exp:clickExpression);
+
+        }
+    };
+});
+</sdco-editor-tab>
+</sdco-editor>
+
+</div>
+
+<!-- 
+angular.module('app',[])
+.controller('ConfirmCtrl', function($scope, $window){
+    
+    $scope.login='Bob';
+
+    //This callback displays a confirm dialog
+    // and evaluate the expression in parameter
+    // in case of confirmation.
+    $scope.confirmFn= function(expression){
+        console.log(expression);
+        if ($window.confirm('Are you sure?')){
+            $scope.$apply(function(){
+                $scope.$eval(expression);                
+            });
+        }
+    };
+})
+.directive('confirmClick', function() {
+    return {
+        restrict: 'A',
+        priority: 1,
+        //Be sure that the ngClick directive
+        // Will not be compiled
+        terminal: true,
+        // Use an isolated scope
+        // with an attribute which will call
+        // a callback function
+        // attribute name: confirmAction
+        scope:{
+            confirmAction:'&'
+        },
+        link: function(scope, elm, attrs) {
+            // Get the expression used on ngClick
+            // (use attrs to retrieve it)
+            var clickExpression= attrs.ngClick;
+            
+            // When the element is clicked, call the confirmAction
+            // function (scope.confirmAction({exp:clickExpression);
+            elm.on('click', function(e){
+                scope.confirmAction({exp:clickExpression});
+            });
+
+        }
+    };
+});
+
+ -->

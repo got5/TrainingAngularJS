@@ -1,0 +1,72 @@
+<div>
+
+	<h1>A note on <strong>promises</strong></h1>
+
+	<ul>
+		<li>Not specififc to AngularJs</li>
+		<li>... which has it's own implementation based on the <strong>$q</strong> service</li>
+		<li>Similar to callbacks passed in parameter of a function, but makes code more readable and easier to maintain</li>
+		<li>Main interest is that promises can be chained</li>
+	</ul>
+		
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="example1.js">
+angular.module('sample',[])
+.controller(['$scope', '$q', '$timeout', function($scope, $q, $timeout) {
+
+	function asynchTestData(data) {
+		//Creates a deferred object to work with promises
+		var deferred = $q.defer();
+
+		$timeout(
+			//When this function is executed, we are already out from
+			//asynchTestData...
+			function() {
+				var areDataOK = true; //TODO
+				if (areDataOK) {
+					//When the promise is resolved, the success calback is called
+					deferred.resolve('Data are OK!');
+				} else {
+					//When the promise is rejected, the failure callback is called
+					deferred.reject('There is an error...');
+				}
+			},
+			1000);
+		
+		//the promise to use, which will be resolved or rejected later
+		return deferred.promise;
+	}
+	
+	//Let's use our function asynchTestData.
+	var promise = asynchTestData('data');
+	promise.then(function successCallback(result) {
+		console.log('promise successfully resolved');
+	}, function(reason) {
+		console.log('Promise rejected, looks like an error occured :' + reason);
+	});
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="withVsWithout.js">
+
+//We want function A to call B, and B to call C
+
+//Without promise
+var C= function(){...};
+var B= function(C){....if(cond){C(); }};
+var A= function(B){....if(cond){B(); }};
+
+//With promises
+var A= function(){...};
+var B= function(){...};
+var C= function(){...};
+
+A()
+.then(B)
+.then(C)
+.catch(function(error){});
+
+
+		</sdco-editor-tab>		
+	</sdco-editor>
+
+</div>

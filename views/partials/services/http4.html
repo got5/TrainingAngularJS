@@ -1,0 +1,78 @@
+<div class="bloc-content text-content">
+
+	<h1>Main Angular services: $http</h1>
+
+	<ul>
+		<li><strong>Exercises</strong>
+			<ul>
+				<li>Write a function <i>getNbUsers</i>, which uses <i>$http</i>
+					service to return the content of <i>data/users.json</i> file.
+				</li>
+				<li>Create a function which use the <i>$timeout</i> service
+					to call this function after two seconds.
+				</li>
+				<li>Make a promise in the above function to return the number of results 
+					in the <i>resolve()</i> function. You can now call the function <i>asynchGetNbUsers()</i>, and get the result 
+					in a chained <i>then()</i> function, to store it in a <i>$scope.nbUsers</i> property.
+				</li>
+			</ul>
+	</ul>
+		
+	<sdco-editor compile="true" compile-js-first="true" compile-on-demand="true" >
+	    <sdco-editor-tab type="html" heading="http.html">
+&lt;div ng-app="sample" id="userPanel" ng-controller="UserCtrl"&gt;
+    There are {{nbUsers}} connected users on the website.
+&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="http.js">
+angular.module('trainingAJ')
+.exoController('UserCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+	
+	$scope.asynchGetNbUsers = function() {
+		// TODO: 1) use $timeout, just to create an asynch action
+
+		// TODO: 2) The function in the timeout has to retrieve the file data/users.json
+		//			and resolve a promise when data is retrieved, or reject it in case of error
+
+		// TODO: 3) Don't forget to return your promise
+	};
+
+	// TODO 4: Call $scope.asynchGetNbUsers() and update the $scope.nbUsers field...
+}]);
+
+		</sdco-editor-tab>
+	</sdco-editor>
+</div>
+<!-- 
+angular.module('trainingAJ')
+.exoController('UserCtrl', ['$scope', '$timeout','$http', '$q',  function($scope, $timeout, $http, $q) {
+	
+	$scope.asynchGetNbUsers = function() {
+      
+      var defered= $q.defer();
+      
+	  // TODO: 1) use $timeout, just to create an asynch action
+      $timeout(function(){
+        
+		// TODO: 2) The function in the timeout has to retrieve the file data/users.json
+		//			and resolve a promise when data is retrieved, or reject it in case of error        
+        $http.get('data/exos/users.json')
+        .then(
+          function success(answer){ defered.resolve(answer.data.length);}, 
+          function error(reason){defered.reject(reason);}
+       	);
+        
+      }, 1000);
+
+	  // TODO: 3) Don't forget to return your promise
+      return defered.promise;
+	};
+
+	// TODO 4: Call $scope.asynchGetNbUsers() and update the $scope.nbUsers field...
+  	$scope.asynchGetNbUsers()
+    .then(function success(length){
+      	console.log(length);
+    	$scope.nbUsers=length;
+    });
+}]);
+ -->

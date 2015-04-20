@@ -1,0 +1,36 @@
+<div>
+
+	<h1> Bower, for web component dependencies </h1>
+
+	<ul>
+		<li><span>Package manager</span> for <span>client-side components</span></li>
+		<li>Search/install packages: <i>bower search underscore</i>/<i>bower install underscore</i>.</li>
+		<li>Can be used with <span>AngularJS</span> to <span>find</span>, 
+			<span>install</span>, <span>update</span> and <span>publish</span> 
+			reusable components.</li>
+	</ul>
+		
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="ini" heading="app.js"># Search for a component by name
+bower search angular
+Search results:
+  - angular git://github.com/angular/bower-angular.git
+  - angular-resource git://github.com/angular/bower-angular-resource.git
+  ...
+# Search options
+bower search angular | grep "cookies"
+  ...
+# Download/install a component in a components directory and add it to bower.json
+bower install component-name --save
+
+# Download a component with a specific version.
+bower install component-name#version
+
+# Register you component and make it appear in searches
+bower register [app name] [git endpoint]
+		</sdco-editor-tab>
+	</sdco-editor>
+	
+	<img src="data/imgs/bower.png" width="100" /></div>
+    
+</div>

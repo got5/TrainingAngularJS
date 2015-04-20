@@ -1,0 +1,18 @@
+<div>
+
+	<h1>Expressions in AngularJS</h1>
+
+	<ul>
+		<li>All properties are searched into the <strong>$scope</strong> object.</li>
+		<li>No error thrown when trying to access properties of a null/undefined object.</li>
+	</ul>
+
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="index.html">
+Hello, mister 
+{{{ true: currentUser.login, false: "Unknown" }[currentUser != undefined]}}&lt;br/&gt;
+You have {{currentUser.children.length}} children.
+		</sdco-editor-tab>
+	</sdco-editor>
+		
+</div>

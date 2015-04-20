@@ -1,0 +1,36 @@
+<div>
+
+	<h1>What is a service?</h1>
+
+	<ul>
+		<li>Services are <strong>singletons</strong> that carry out specific tasks.</li>
+		<li>You can use Angular existant services, which provide support for <strong>common web apps needs</strong> 
+			($http, $location, etc.)...</li>
+		<li>
+			Or you can ( and you <strong>should</strong> ) create your own services, which will handle your own <strong>application logic</strong>.
+		</li>
+		<li>
+			Remember that <strong>controllers should not contain any business logic</strong>, and that 
+			<strong>they will be remove</strong> from <i>AngularJs 2</i> 
+			and so that in a new application, services should really contain most of your logic
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="controllers.js">
+angular.module('sample')
+//Let's inject our userService service
+.controller('DirectiveCtrl', ['$scope', '$http', 'userService', function($scope, $http, userService){
+	$http({method: 'GET', url: '/users'}).
+		success(function(data, status, headers, config) {
+			$scope.users = data;
+		});
+		
+	$scope.deleteUser = function(user) {
+		userService.delete(user);
+	};	
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

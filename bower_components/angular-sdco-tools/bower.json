@@ -1,0 +1,28 @@
+{
+  "name": "angular-sdco-tools",
+  "version": "1.0.0",
+  "main": [
+    "./dist/js/sdco-tools.js", 
+    "./dist/styles/sdco-tools.css", 
+    "./dist/imgs/*"],
+  "ignore": [
+    "/*",
+    "/*/",
+    "!/dist/"
+  ],
+  "dependencies": {
+    "angular": "1.3.0",
+    "angular-mocks": "1.3.0",
+    "angular-sanitize": "1.3.0",
+    "angular-bootstrap": "0.12.0",
+    "bootstrap": "3.3.1",
+    "codemirror": "4.8.0"
+  },
+  "devDependencies": {
+    "jquery": "2.1.1",
+    "angular-route": "1.3.0"
+  },
+  "resolutions": {
+    "angular": "1.3.0"
+  }
+}

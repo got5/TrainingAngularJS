@@ -1,0 +1,36 @@
+<div class="bloc-content text-content">
+
+	<h1> The <i>replace</i> attribute </h1>
+	<ul>
+		<li>If <i>false</i> (default), the template is appended to the directive element</li>
+		<li>If <i>true</i>, the template will <strong>replace</strong> the current element</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true">
+		<sdco-editor-tab type="javascript" heading="replace.js">
+angular.module('app',[])
+.directive('replaceTestFalse', function () {
+    return {
+        restrict: 'A',
+        template: '&lt;span&gt;Directive template content&lt;/span&gt;',
+    };
+});
+
+angular.module('app').directive('replaceTestTrue', function () {
+    return {
+		restrict: 'A',
+		replace: true,
+		template: '&lt;span&gt;Directive template content&lt;/span&gt;',
+    };
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="replace.html">
+&lt;div ng-app="app"&gt;
+	&lt;strong replace-test-false&gt;Let's create a directive!&lt;/strong&gt;
+	&lt;br/&gt;
+	&lt;strong replace-test-true&gt;Let's create a directive!&lt;/strong&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

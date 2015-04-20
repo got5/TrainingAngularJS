@@ -1,0 +1,36 @@
+<div class="bloc-content text-content">
+
+	<h1>Main Angular services: $http</h1>
+
+	<ul>
+		<li>Facilitates communication with remote HTTP servers via <strong>XMLHttprequest</strong>
+			or <strong>JSONP</strong>.</li>
+		<li>Based on the <strong>deferred/promise API</strong>.</li>
+		<li>You can enable <strong>cache</strong> to store the response in local cache.</li>
+	</ul>
+
+	<sdco-editor compile="true" compile-js-first="true" >
+    	<sdco-editor-tab type="html" heading="http.html">
+&lt;div ng-controller="HttpCtrl"&gt;
+    File content: {{result}}
+&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="http.js">
+// exoController is a custom method to get dynamic behavior
+// In a standard app, you would use controller instead...
+angular.module('trainingAJ')
+.exoController('HttpCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.result = "Loading file...";
+	$http({method: 'GET', url: 'data/exos/users.json'}).
+		success(function(data, status, headers, config) {
+			$scope.result = data;
+		}).
+		error(function(data, status, headers, config) {
+			$scope.result = "Error loading file.";
+		});
+}]);
+</sdco-editor-tab>
+</sdco-editor>
+
+		
+</div>

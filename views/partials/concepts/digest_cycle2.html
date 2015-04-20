@@ -1,0 +1,13 @@
+<div>
+	<h1>The $digest function</h1>
+	<ul>
+		<li><strong>$scope.$digest</strong>: 
+		<ul>
+			<li>Processes all the watchers of the current scope and its children.</li>
+			<li>Keeps calling all the watchers as long as changes are notified in the model.</li>
+			<li>Possible to get into an infinite loop. Will throw <i>Maximum iteration limit exceeded</i> if the 
+				number of iterations exceeds 10.</li>
+			<li>Never use it directly, call <strong>$scope.$apply</strong> instead</li>
+		</ul>
+	</ul>
+</div>

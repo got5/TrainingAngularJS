@@ -1,0 +1,40 @@
+<div>
+	<h1>Global architecture in terms of modules and dependencies</h1>
+
+	<ul>
+		<li>
+			Each new application is a module and has to be declared
+		</li>
+		<li>
+			But a module is not necessarilly an application, it can be a library which provides 
+			<strong>services</strong>,<strong>controllers</strong>, <strong>directives</strong> and <strong>filters</strong>
+		</li>
+		<li>
+			If you can use libraries modules into an application module, it means that you can specify the libraries modules 
+			on which the application module depends
+		</li>
+		<li>
+			<strong>You have to</strong> make your applications flexible by decomposing them into modules, themselves composed
+			of services, directives, filters and controllers reusable anywhere
+		</li>
+	</ul>
+
+	<sdco-editor compile="false" read-only="false">
+		<sdco-editor-tab type="javascript" heading="example.js">
+// Here is your library module, which doesn't 
+// depend on anything (but it could)
+angular.module('myLib',[])
+// On which you can declare components such as directives, services...
+.service('serv1', ....).service('serv2',....)
+.directive('d1', ...).directive('d2', ...);
+
+//Now your new application module, which depends on several other modules
+angular.module('myApp', ['myLib', 'otherModule', ...])
+// can use the services declared in the modules in dependency
+.service('yourService', ['serv1', function(serv1){
+	//Your service content, which can use the 'serv1' service
+	...
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+</div>

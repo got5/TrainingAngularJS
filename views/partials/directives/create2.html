@@ -1,0 +1,118 @@
+<div>
+    <h1> The <i>link</i> attribute </h1>
+
+    <ul>
+        <li>
+            You can understand it as the controller which has access to your element
+            <sdco-notes>
+                There is also an attribute named <i>controller</i>,
+                however the <i>link</i> function has the same kind of behavior
+                than the controller. The basic rule is to use link, except if you 
+                need to make it available to an other directive (directives can communicate).
+            </sdco-notes>
+        </li>
+        <li> It looks like the controller because it has access to the scope </li>
+        <li> 
+            And it also has access to the element itself, which allows you to 
+            manipulate the element attributes if needed, or to work on the dom
+            <sdco-notes>
+                Angular <strong>discourage you to manipulate the dom</strong>.
+                Why? Because Angular has created native directives
+                which manipulate the dom (as ng-if), and you should use them instead of manipulate
+                the DOM yoursel.
+                But in practice, you sometimes have to do it. So practically,
+                just be sure that you can't do what you want with native directives.
+                In other words, don't do <code>$element.on('click', ...)</code>
+                when you could use <code>ng-click</code>
+                </ul>
+            </sdco-notes>
+        </li>
+    </ul>
+
+    <h2> Exercise </h2>
+
+    <ul>
+        <li>
+            Complete the directive <i>starRating</i>, 
+    		by adding two css classes on the associated element: <i>rating</i> and <i>two</i>. You can use 
+    		the method <i>addClass(className)</i> on the object <i>elem</i>.
+        </li>
+        <li>
+            Add a <i>rating</i> attribute on the <i>p</i> HTML element, which can have the following values: 
+            <i>zero</i>, <i>one</i>, <i>two</i>, <i>three</i>, <i>four</i> or <i>five</i>. 
+            In the <i>link()</i> function of your
+    		directive, use the value of the attribute <i>rating</i> (by using <i>attrs.rating</i>) to add the
+    		corresponding CSS class.
+
+        </li>
+	</ul>
+	
+    <sdco-editor compile="false" js-fiddle="true" height="200" >
+    	<sdco-editor-tab type="javascript" heading="rating.js">
+angular.module('app',[])
+    .directive('starRating', function () {
+    return {
+		link: function (scope, elem, attrs) {
+			// TODO
+		}
+    };
+});
+        </sdco-editor-tab>
+        <sdco-editor-tab type="html" heading="rating.html">
+&lt;p star-rating&gt;2 comments&lt;/p&gt;
+        </sdco-editor-tab>
+        <sdco-editor-tab type="css" heading="style.css">
+/* Ratings */
+p.rating {font-size: 0.75em;}
+.rating {
+padding-left: 65px;
+margin: 10px 0;
+}
+.rating a:link {color: #777; background: #FFF;}
+.five {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 -340px no-repeat;
+}
+.four {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 -262px no-repeat;
+}
+.three {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 -193px no-repeat;
+}
+.two {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 -127px no-repeat;
+}
+.one {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 -60px no-repeat;
+}
+.zero {
+color: #000;
+background: #FFF url(http://s29.postimg.org/jayhjd33r/bg_ratings.png) 0 1px no-repeat;
+}
+        </sdco-editor-tab>
+    </sdco-editor>
+
+</div>
+
+<!--
+angular.module('app',[])
+    .directive('starRating', function () {
+    return {
+        link: function (scope, elem, attrs) {
+            elem.addClass('rating');
+            var rate;
+            switch(attrs.rating){
+                case "1": rate="one"; break;
+                case "2": rate="two"; break;
+                case "3": rate="three"; break;
+                case "4": rate="four"; break;
+                default: break;
+            }
+            elem.addClass(rate);
+        }
+    };
+});-->

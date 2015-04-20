@@ -1,0 +1,22 @@
+<div class="bloc-content text-content">
+
+	<h1>Controller declaration</h1>
+
+	<ul>
+		<li>Create a function with a specific name is a bad practice</li>
+		<li>It was allowed in previous <i>angularjs</i> versions, but is not anymore</li>
+		<li>Always use the <strong>.controller</strong> method of your Angular module</li>
+	</ul>
+		
+	<sdco-editor compile="false" read-only="false">
+		<sdco-editor-tab type="javascript" heading="app.js">
+// You create your module (2 parameters means creation, 
+// second parameters correspond to dependencies modules)
+angular.module('myApp', [])
+.controller('GreetingCtrl', ['$scope', function($scope) {
+	//Controller content
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+		
+</div>

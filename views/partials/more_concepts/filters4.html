@@ -1,0 +1,37 @@
+<div>
+
+	<h1> Creating Angular Filters </h1>
+
+	<ul>
+		<li>You can register new filters in your application, using <i class="text-red">filter()</i> module  
+			function.</li>
+		<li>It returns a filter function, which takes the value to filter as the first argument. 
+			Then, all filter parameters are passed as additional arguments.
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true">
+		<sdco-editor-tab type="html" heading="testFilter.html">
+&lt;div ng-app="sample"&gt;
+	{{ "Deinstitutionalization" | split:10 }} &lt;br/&gt;
+	{{ "Deinstitutionalization" | split:5:true }} &lt;br/&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="filters.js">
+angular.module('sample', [])
+.filter('split', function() {
+	return function(input, nbChars, uppercase) {
+		var out = input;
+		if (input.length &gt; nbChars) {
+			out = input.substring(0, nbChars) + "...";
+		}
+		if (uppercase) {
+			out = out.toUpperCase();
+		}
+		return out;
+	};
+});
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

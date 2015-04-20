@@ -1,4 +1,5 @@
 node_modules/
 app/vendor
 prod
+dist
 .tmp

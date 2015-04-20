@@ -1,0 +1,28 @@
+<div>
+
+	<h1>ngRepeat</h1>
+
+	<ul>
+		<li>
+			<em>ng-repeat</em> 
+			iterates over a collection of items
+		</li>
+		<li>
+			Each template gets <strong>its own scope</strong>, with following added properties:</li>
+		<ul>
+			<li><i>$index</i>: iterator offset of the repeated element.</li>
+			<li><i>$first </i>, <i>$middle</i>, <i>$last</i>: 
+				booleans used to test the element position in the collection.</li>
+		</ul>
+	</ul>
+		
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="http.html">&lt;!-- div ng-repeat="user in listUsers" --&gt;
+&lt;div ng-repeat="login in [ 'Bob', 'Luc', 'Bill' ]"&gt;
+	&lt;b&gt;{{login}}&lt;/b&gt;. Index: {{$index}}, first: {{$first}}, 
+		middle: {{$middle}}, last: {{$last}}
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

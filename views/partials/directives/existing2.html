@@ -1,0 +1,23 @@
+<div>
+
+	<h1> Events handlers </h1>
+
+	<ul>
+		<li><i>ngClick</i>: Specifies custom behavior when an element is clicked.</li>
+		<li><i>ngChange</i>: Evaluate given expression when user changes the input</li>
+		<li><i>ngDblclick</i>: Custom behavior on double click event.</li>
+		<li><i>ngMouseDown</i>, <i>ngMouseEnter</i>, <i>ngMouseLeave</i>
+			<i>ngMouseOver</i>, <i>ngMouseUp</i>: Mouse events.</li>
+	</ul>
+		
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="http.html">
+&lt;button class="btn" ng-click="txtEvent='click'"&gt;Click event&lt;/button&gt;
+&lt;input type="text" ng-model="login" ng-change="txtEvent='change'" 
+	placeholder="Edit input to trigger change event..." /&gt;
+&lt;button class="btn" ng-mouseover="txtEvent='mouseover'"&gt;Mouse events&lt;/button&gt;
+Event: {{txtEvent}}
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

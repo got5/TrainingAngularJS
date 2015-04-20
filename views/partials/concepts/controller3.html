@@ -1,0 +1,39 @@
+<div>
+    <h1>Linking controllers to views/templates</h1>
+    <ul>
+        <li>You can associate your controllers via:</li>
+        <li>The <strong>ngController</strong> directive.</li>
+        <li>The <strong>ngRoute</strong> service associate a route to views and controllers</li>
+        <li>
+            <strong>Remark</strong>: 
+            A new module will be available soon (angular 1.4) for routing: <i>ngNewRouter</i>. Have a look
+            <a href="http://angular.github.io/router/getting-started" target="_blank">here</a>
+            for more details
+        </li>
+    </ul>
+
+    <sdco-editor compile="false">
+        <sdco-editor-tab type="html" heading="contact.html">
+&lt;div ng-controller="ContactController"&gt;
+...
+&lt;/div&gt;
+        </sdco-editor-tab>
+        <sdco-editor-tab type="javascript" heading="app.js">
+angular.module('trainingApp', ['ngRoute'])
+.config(function ($routeProvider) {
+    $routeProvider
+    .when('/home', {
+        templateUrl: 'views/main.html',
+        controller: MainController
+    })
+    .when('/contact', {
+        templateUrl: 'views/contact.html',
+    })
+    .otherwise({
+        redirectTo: '/home'
+    });
+});
+        </sdco-editor-tab>
+    </sdco-editor>
+
+</div>

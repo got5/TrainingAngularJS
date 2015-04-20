@@ -1,0 +1,27 @@
+<div>
+
+	<h1>Main directives</h1>
+
+	<ul>
+		<li><i>ngApp</i>: Designates the root of the application, generally placed at the root
+			of the page. Only one per HTML document.</li>
+		<li><i>ngController</i>: Assigns behavior to a scope. Links a view to a controller.</li>
+		<li><i>ngInit</i>: Specifies initialization tasks.</li>
+		<li><i>ngModel</i>: Does two-way data binding between a <i>$scope</i> property and
+			and an <i>input</i>/<i>select</i>/<i>textarea</i> or custom HTML component.</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true">
+		<sdco-editor-tab type="html" heading="http.html">
+&lt;body ng-app="sample"&gt;
+	&lt;div ng-controller="UserCtrl" ng-init="currentUser = { 'login': 'BobSponge' }"&gt;
+	    &lt;input type="text" ng-model="currentUser.login" /&gt;
+	&lt;/div&gt;
+&lt;/body&gt;</sdco-editor-tab>
+	<sdco-editor-tab type="javascript" heading="http.js">
+angular.module('sample', [])
+.controller('UserCtrl', function($scope) {});
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

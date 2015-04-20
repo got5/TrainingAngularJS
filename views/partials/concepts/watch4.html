@@ -1,0 +1,65 @@
+<div>
+
+	<h1>Use of $watch by Angular</h1>
+
+	<h2>Exercise</h2>
+
+	<ul>
+		<li>
+			Complete the template and the controller to link the form 
+			elements to the scope data
+		</li>
+		<li>
+			Displays an error message if one or more form fields are empty
+		</li>
+	</ul>
+			
+	<sdco-editor compile="false" read-only="true" js-fiddle="true">
+		<sdco-editor-tab type="html" heading="product.html">
+&lt;div ng-app="sample" ng-controller="ProductController" id="productForm"&gt;
+	Name *: &lt;input type="text" id="inputName" /&gt;,
+	Price *: &lt;input type="number" id="inputPrice" /&gt; &euro;,
+	Quantity *: &lt;input type="number" id="inputQty" /&gt;
+	&lt;br/&gt; &lt;i id="errorMsg"&gt;{{mandatoryMsg}}&lt;/i&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="productController.js">
+angular.module('sample', [])
+.controller('ProductController', function($scope) {
+
+	$scope.product = { name: null, price: null, qty: null };
+
+	$scope.mandatoryMsg = "All fields are mandatory!";
+});
+		</sdco-editor-tab>
+	</sdco-editor>
+</div>
+
+
+	<!-- 
+
+<div ng-app="sample" ng-controller="ProductController" id="productForm">
+	Name *: <input type="text" id="inputName" ng-model="product.name" />,
+	Price *: <input type="number" id="inputPrice" ng-model="product.price" /> €,
+	Quantity *: <input type="number" id="inputQty" ng-model="product.qty" />
+	<br/> <i id="errorMsg">{{mandatoryMsg}}</i>
+</div>
+
+	
+angular.module('sample', [])
+.controller('ProductController', function($scope) {
+	
+	$scope.product = { name: null, price: null, qty: null };
+	
+	$scope.$watch('product', function(newValue, oldValue){
+	    var name= newValue.name, price= newValue.price, qty= newValue.qty;
+	    if ( (!name || name=='') ||  (!price || price=='') || (!qty || qty=='') ){
+	        $scope.mandatoryMsg = "All fields are mandatory!";
+	    }else{
+	        $scope.mandatoryMsg = '';
+	    }
+	}, true);
+	
+	$scope.mandatoryMsg = "All fields are mandatory!";
+});
+	 -->
