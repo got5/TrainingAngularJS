@@ -1,0 +1,29 @@
+<div class="bloc-content text-content">
+
+	<h1>ngIf</h1>
+
+	<ul>
+		<li><strong>Removes</strong> conditionally a portion of the DOM tree</li>
+		<li>
+			If ngIf removes an element from the DOM, remember that handlers 
+			associated to this elements are removed as well, which means that 
+			you will have to reattach them if needed
+		</li>		
+	</ul>
+
+		
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="http.html">
+&lt;div ng-init="bRemoveDiv = true"&gt;
+	&lt;button class="btn" ng-click="bRemoveDiv = !bRemoveDiv"&gt;
+		Show/Remove
+	&lt;/button&gt;
+	&lt;div ng-if="bRemoveDiv"&gt;
+		I'm visible because &lt;i&gt;bRemoveDiv&lt;/i&gt; is {{bRemoveDiv}}.
+	&lt;/div&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+
+</div>

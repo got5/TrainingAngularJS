@@ -1,0 +1,34 @@
+<div>
+
+	<h1> The <i>restrict</i> attribute </h1>
+
+	<ul>
+		<li>
+			Restricts the directive to a specific directive declaration style. 
+			If omitted, directives are allowed on <strong>attributes only</strong>
+		</li>
+		<li><strong>E</strong> (Element name): <i>&lt;my-directive&gt;&lt;/my-directive&gt;</i></li>
+		<li><strong>A</strong> (Attribute): <i>&lt;div my-directive="exp"&gt;&lt;/div&gt;</i></li>
+		<li><strong>C</strong> (Class): <i>&lt;div class="my-directive: exp;"&gt;&lt;/div&gt;</i></li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true" >
+		<sdco-editor-tab type="javascript" heading="rating.js">
+angular.module('app',[])
+.directive('starRating', function () {
+    return {
+		restrict: 'A, E',
+		link: function (scope, elem, attrs) {
+			console.log("Directive declaration style is OK!");
+		}
+    };
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="rating.html">
+&lt;span star-rating&gt;Let's create a directive!&lt;/span&gt;
+
+&lt;!-- Which other notation can you use? --&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

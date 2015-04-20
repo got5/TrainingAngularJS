@@ -1,0 +1,40 @@
+<div>
+
+	<h1>Write your own directives</h1>
+
+	<ul>
+		<li> Use of existing directives is usefull </li>
+		<li> Create your own directives is absolutely essential </li>
+		<li> Make it as "reusable" as possible, to share it among projects, think it as a library component </li>
+		<li>You can write and add your own directives by using the method <i>directive()</i>
+			of Angular modules.
+			<sdco-notes>
+				Remember that it's always the same process to create an Angular specific object.
+				Retrieve the module <code>angular.module</code> and then call the method
+				you want on this module: <code>directive()</code> , <code>controller()</code>, <code>service()</code>,
+				<code>filter()</code>
+			</sdco-notes>
+		</li>
+		<li>This function returns a <strong>Directive Definition Object</strong>, which has several
+			attributes to configure your directive.</li>
+        <li>If two or more directives have the same name, they are all executed.</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true" >
+		<sdco-editor-tab type="html" heading="rating.html" >
+&lt;div starRating&gt;Let's create a directive!&lt;/div&gt;
+
+&lt;!-- Why isn't it working??? --&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="rating.js" >
+angular.module('app',[]).directive('starRating', function () {
+    return {
+		link: function (scope, elem, attrs) {
+			console.log("Recognized the directive usage!");
+		}
+    };
+});
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

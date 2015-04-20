@@ -1,0 +1,49 @@
+<div>
+
+	<h1> Yeoman </h1>
+
+	<ul>
+		<li> Not specific to <strong>Angular</strong> </li>
+		<li> Automate project creation based on generators, there are angular generators </li>
+		<li> Simplify client-side development workflow </li>
+		<li> But, you have to accept and adapt to its own conventions</li>
+	</ul>
+		
+	<sdco-editor compile="false" >
+		<sdco-editor-tab type="ini" heading="app.js">
+
+# Install the generator
+npm install -g generator-angular
+
+# Create a new Angular application in current directory
+yo angular
+
+# Angular artifacts generators
+
+# Generates a controller in app/scripts/controllers.
+yo angular:controller myController
+
+# Generates a directive in app/scripts/directives.
+yo angular:directive myDirective
+
+# Generates a filter in app/scripts/filters.
+yo angular:filter myFilter
+
+# Generates an AngularJS service in app/scripts/services.
+yo angular:service myService
+
+# Generates a controller and view, and configures a route 
+# in app/scripts/app.js connecting them.
+yo angular:route myRoute
+
+# Generates an HTML view file in app/views.
+yo angular:view myView
+
+# You can also create your own generators.
+yo generator
+		</sdco-editor-tab>
+	</sdco-editor>
+
+	<img src="data/imgs/yeoman.png" width="100" />
+
+</div>

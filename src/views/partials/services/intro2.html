@@ -1,0 +1,31 @@
+<div>
+	<h1>How to use a service?</h1>
+
+	<ul>
+		<li>
+			To make the service available in your code, you have to:
+			<ul>
+				<li>Be sure that your module has a dependency to the module which owns this service</li>
+				<li>Make the service available in your controller/directive/other service by injecting it</li>
+			</ul>
+		</li>
+		<li>
+			The array notation allows to identify services in case you minify your js files,
+			it's a good practice to use it
+		</li>
+		<li>
+			You can also use <a href="https://github.com/olov/ng-annotate" target=”_blank”>ng-annotate</a>
+			which will add dependency injection annotations for you
+		</li>
+	</ul>
+
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="controllers.js">
+angular.module('sample',[])
+.controller('myController', ['$scope', 'myService', function($scope, myService){
+	$scope.myVar= myService.doJob();
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

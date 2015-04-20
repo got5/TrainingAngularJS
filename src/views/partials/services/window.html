@@ -1,0 +1,28 @@
+<div class="bloc-content text-content">
+
+	<h1>The service $window</h1>
+
+	<ul>
+		<li>Reference to the browser <strong>window</strong> object.</li>
+		<li>Can be mocked for testing, overriden or removed.</li>
+		<li>Always refer to this service instead of global variable <i>window</i>.</li>
+	</ul>
+
+	<sdco-editor compile="false" js-fiddle="true">
+    	<sdco-editor-tab type="html" heading="window.html">
+&lt;div ng-app="sample" ng-controller="WindowCtrl"&gt;
+    &lt;input type="text" ng-model="userName" placeholder="Enter your name..." /&gt;
+    &lt;button class="btn" ng-click="showWelcomeAlert()"&gt;Login&lt;/button&gt;
+&lt;/div&gt;
+	</sdco-editor-tab>
+	<sdco-editor-tab type="javascript" heading="window.js">
+angular.module('sample', [])
+.controller('WindowCtrl', ['$scope', '$window', function($scope, $window) {
+	$scope.showWelcomeAlert = function() {
+		$window.alert('Hello ' + $scope.userName + "!");
+	}
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

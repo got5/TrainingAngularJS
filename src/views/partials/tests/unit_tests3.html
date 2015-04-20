@@ -1,0 +1,47 @@
+<div>
+
+	<h1>Simple Unit Test</h1>
+
+    <ul>
+        <li>Here is a test for a simple Controller</li>
+        <li>But they can be much more complex</li>
+        <li>They need angular-mocks to load modules definitions</li>
+        <li>Unit tests need to be practiced, and are a subject in themselve</li>
+    </ul>
+
+    <sdco-editor compile="false" read-only="true" >
+        <sdco-editor-tab type="javascript" heading="passwordController.js">
+angular.module('myControllerApp')
+.controller('PasswordCtrl',function($scope) {
+    $scope.password = '';
+    $scope.grade = function() {
+       var size = $scope.password.length;
+        if (size > 8) {
+            $scope.strength = 'strong';
+        } else if (size > 3) {
+            $scope.strength = 'medium';
+        } else {
+            $scope.strength = 'weak';
+        }
+    };
+});
+        </sdco-editor-tab>
+        <sdco-editor-tab type="javascript" heading="passwordCtrlSpec.js">
+describe('My simple controllers application', function() {
+
+    beforeEach(module('myControllerApp'));
+
+    describe('The grade function', function(){
+        it('should evaluate the strength of the password', inject(function($controller) {
+            var $scope = {};
+            var pc = $controller('PasswordCtrl', { $scope: $scope });
+            $scope.password = 'abc';
+            $scope.grade();
+            expect($scope.strength).toEqual('weak');
+         }));
+    });
+
+});
+        </sdco-editor-tab>
+	</sdco-editor>
+</div>

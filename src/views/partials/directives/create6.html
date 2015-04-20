@@ -1,0 +1,79 @@
+<div class="bloc-content text-content">
+
+	<h1> The <i>transclude</i> attribute </h1>
+
+	<ul>
+		<li>
+			In previous samples, we have seen that the elements contents were never visible, and we
+			always replaced by the <i>template</i> content
+		</li>
+		<li>
+			<i>transclude</i> allows you to retrieve the element content
+			<sdco-notes>
+				Ok, but where the element content will be added if you also have a template?
+				The answer is, where you want. You have to use the <code>ng-transclude</code>
+				directive into your template to specify where the element content will be inserted.
+			</sdco-notes>
+		</li>
+		<li>
+			You can also do your transclude "dynamically"
+			<sdco-notes>
+				Below are 2 directives examples:
+				<ul>
+					<li> 
+						The first one corresponds to the "basic" usage, with <code>transclude:true</code>
+						and the <code>ng-transclude</code> directive
+					</li>
+					<li>
+						The second is not common, and not easy, and less important to understand,
+						but show you how you can dynamise the transclusion behavior, by modifying
+						the dom yoursel  (choose where to do the transcluded content, and even modify it).
+						Be sure that it's an advanced concept, not for first usage.
+					</li>
+				</ul>
+			</sdco-notes>		
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true" >
+		<sdco-editor-tab type="javascript" heading="rating.js">
+angular.module('app',[])
+.directive('classicTransclude', function () {
+    return {
+		restrict: 'A',
+		transclude: true,
+        template: '&lt;b&gt;Directive template content with transclude: ' +
+                   '&lt;div ng-transclude&gt;here&lt;/div&gt; &lt;/b&gt;'
+    };
+})
+.directive('advancedTransclude', function () {
+    return {
+		restrict: 'A',
+		transclude: true,
+		template: '&lt;b&gt;Directive template content ' + 
+			'&lt;div id="insertHere"&gt;here&lt;/div&gt; &lt;/b&gt;',
+        link: function($scope, $element, $attrs, $ctrls, $transclude){
+            $transclude(function(clone, scope){
+                var newContent= angular.element('&lt;p&gt;' + clone.text() + ' modified &lt;/p&gt;');
+                $element.append(newContent);
+            });        
+        }
+    };
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="rating.html">
+&lt;div ng-app="app" &gt;
+    &lt;h1&gt; Classic usage &lt;/h1&gt;
+	&lt;span classic-transclude&gt;
+		&lt;i&gt;Initial transcluded content&lt;/i&gt;
+	&lt;/span&gt;
+    
+    &lt;h1&gt; Advanced usage &lt;/h1&gt;
+	&lt;span advanced-transclude&gt;
+		&lt;i&gt;Initial transcluded content&lt;/i&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

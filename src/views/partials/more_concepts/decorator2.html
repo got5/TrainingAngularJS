@@ -1,0 +1,63 @@
+<div>
+
+    <h1> Directives Decorators </h1>
+
+
+	<li>It is also possible to decorate a directive,  same considerations than for services...</li>
+
+    <sdco-editor compile="false" js-fiddle="true" >
+	   <sdco-editor-tab type="javascript" heading="app.js">
+angular.module('app', [])
+.controller('MyCtrl', function($scope) {
+    $scope.counter = 0;
+    $scope.updateCounter = function(){
+        $scope.counter++;
+    }
+})
+.directive("foo", function(){
+    return {
+        restrict: 'E',
+        scope: {
+            name: "@"
+        },
+        replace: true,
+        template: '&lt;div&gt;Hello, &lt;/div&gt;',
+        compile: function(tElement, tAttrs) {
+            tElement.append('&lt;div&gt;Added in compile&lt;/div&gt;');
+
+            return function(scope, element, attrs) {
+                if (angular.isDefined(attrs.name)) {
+                    attrs.name = attrs.name + "!";
+                }
+            };
+        }
+    };
+});
+        </sdco-editor-tab>
+        <sdco-editor-tab type="javascript" heading="run.js">
+angular.module('app').config(function($provide) {
+    $provide.decorator('fooDirective', function($delegate) {
+        var directive = $delegate[0];
+
+        var compile = directive.compile;
+
+        directive.compile = function(tElement, tAttrs) {
+            var link = compile.apply(this, arguments);
+            tElement.append('&lt;div&gt;Added in the decorator&lt;/div&gt;');
+            return function(scope, elem, attrs) {
+                link.apply(this, arguments);
+                // We can extend the link function here
+            };
+        };
+    return $delegate;
+    });
+})
+        </sdco-editor-tab>
+        <sdco-editor-tab type="html" heading="log.html">
+&lt;div ng-app="app" ng-controller="MyCtrl"&gt;
+    &lt;foo name="Angular Tips" fn="updateCounter()"&gt;&lt;/foo&gt;
+&lt;/div&gt;
+        </sdco-editor-tab>
+    </sdco-editor>
+		
+</div>

@@ -1,0 +1,27 @@
+<div>
+	<h1>Main Angular services: $http</h1>
+
+	<p>
+		<strong>$http</strong> contains shortcut methods such as <i>get</i>, <i>head</i>, <i>post</i>, <i>put</i>, 
+		<i>delete</i>, <i>jsonp</i></li>
+	</p>
+		
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="http.js">
+angular.module('sample', [])
+.controller('HttpCtrl', function($scope, $http) {
+	
+	$http.get('/products').success(successCallback).error(errorCallback);
+	
+	$scope.saveUser = function(user) {
+		$http.post('/user', user).success(successCallback);
+	};
+	
+	function successCallback(result) {}
+	
+	function errorCallback(reason) {}
+});
+		</sdco-editor-tab>
+	</sdco-editor>
+		
+</div>

@@ -1,0 +1,34 @@
+<div>
+
+	<h1>Two-Way Data Binding Magic!</h1>
+
+	<h2>Exercise</h2>
+
+	<ul>
+		<li>Replace <i>???</i> with the firstName/lastName entered by the user.</li>
+		<li>Resets all fields when the user clicks on the <i>Reset</i> button.</li>
+	</ul>
+
+	<sdco-editor compile="true" width="800px" height="150px">
+		<sdco-editor-tab type="html" heading="index.html">
+First name: &lt;input type="text" id="txtFirstName" /&gt;,
+Last name: &lt;input type="text" id="txtLastName" /&gt;
+&lt;button class="btn" id="btnReset"&gt;
+	Reset fields
+&lt;/button&gt;
+&lt;br/&gt;
+Hello, Mister &lt;i&gt;???&lt;/i&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+</div>
+
+
+<!--
+First name: <input type="text" id="txtFirstName" ng-model="person.firstName" />,
+Last name: <input type="text" id="txtLastName" ng-model="person.lastName" />
+<button class="btn" id="btnReset" ng-click="person={}">
+	Reset fields
+</button>
+<br/>
+Hello, Mister <i>{{person.firstName}} {{person.lastName}}</i>
+-->

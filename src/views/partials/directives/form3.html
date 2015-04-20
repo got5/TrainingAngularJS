@@ -1,0 +1,83 @@
+<div>
+
+	<h1>Exo</h1>
+
+	<p>
+		Finish the survey application! Remaining tasks are listed in the controller
+		
+		<sdco-notes>
+			The input radio is also an angular directive. Remember bind the notes to the controller scope
+			with the  ng-model, and to specify the value to use with the <i>value</i> attribute.
+		</sdco-notes>
+		
+	</p>
+		
+	<sdco-editor compile="true" compile-js-first="true" compile-on-demand="true" >
+		<sdco-editor-tab type="html" heading="survey.html">
+&lt;div ng-controller="SurveyCtrl"&gt;
+
+&lt;h3&gt;Survey application&lt;/h3&gt;
+
+&lt;form name="formSurvey"&gt;
+	Name: &lt;input type="text"/&gt;&lt;br/&gt; &lt;br/&gt;
+	
+	&lt;button class="btn"&gt;Submit poll&lt;/button&gt;
+&lt;/form&gt;&lt;/div&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="surveyCtrl.js">
+angular.module('trainingAJ')
+.exoController('SurveyCtrl', ['$scope', function($scope) {
+
+	$scope.categories = [ 'Theory', 'Exercices', 
+		'Documentation', 'Trainer' ];
+	$scope.notes = [ 1, 2, 3, 4 ];
+	
+	$scope.survey = {};
+	for (var index = 0; index &lt; 
+		$scope.categories.length; index++) {
+		var category = $scope.categories[index];
+		$scope.survey[category] = 3;
+	}
+	
+	// TODO: One form line per category, 
+	// with one radio button per note.
+	// TODO: Note of 2 or less displays a 
+	// mandatory text input.
+	// TODO: Note of 2 or less is 
+	// disabled for Trainer category.
+}]);
+		</sdco-editor-tab>
+	</sdco-editor>
+	
+</div>
+
+<!--
+<div ng-controller="SurveyCtrl">
+
+<h3>Survey application</h3>
+
+<form name="formSurvey">
+	Name: <input type="text"/><br/> <br/>
+  
+  	<ul>
+    	<li ng-repeat="category in categories">
+          {{category}}
+          <ul>
+            <li style="display:inline-block;" ng-repeat="note in notes">
+            	<input 
+                    type="radio" 
+					ng-disabled="category == 'Trainer' && note <=2"  
+                    ng-model="survey[category]" 
+                   	value={{note}} />{{note}}
+            </li>
+            <li>
+            	<input type="text" placeholder="reason?" ng-show="survey[category] <= 2" />
+            </li>
+         </ul>
+          
+      	</li>	
+  	</ul>
+	
+	<button class="btn">Submit poll</button>
+</form></div>
+ -->

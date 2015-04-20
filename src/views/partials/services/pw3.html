@@ -1,0 +1,26 @@
+<div>
+
+	<h1> Practical Work </h1>
+	<ol>
+		<li>In our <i>ecommerce</i> application, create a service <i>UserService</i> 
+			to handle the login logic, and to store the logged user. Use it in your controller 
+			<i>LoginController</i>.</li>
+		<li>Create a utility service <i>ProductUtils</i>, which will contain a method called
+			<i>getProductRating(product)</i>. It will return the average rating for a given
+			product.</li>
+		<li>Then make another method <i>getRatingCss(product)</i>, which will use the previous one
+			to return the correct CSS class used to display a product rating.</li>
+		<li>Use the new service <i>ProductUtils</i> in the controller <i>
+			DetailController</i>.</li>
+		<li>Create a module called <i>sdcoServices</i>, which will contain your services
+			<i>UserService</i> and <i>User</i> (see User.js).</li>
+        <li>Add to your service <i>UserService</i> a <i>debug mode</i>,
+			which will determine if logs are displayed  in <i>$http</i> handler functions (using 
+			the <i>$log</i> service). Make sure this parameter can  be ONLY set 
+			during the application startup.
+			<br/>
+			To create a new module: 
+			<pre><code>var myModule = angular.module('sdcoServices', []); // Do not forget to import this module in your app module, and to load the UserService.js BEFORE the app.js.</code></pre>
+		</li>
+	</ol>
+</div>

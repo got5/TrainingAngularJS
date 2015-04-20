@@ -1,0 +1,44 @@
+<div class="bloc-content text-content">
+
+	<h1> Form Validation </h1>
+
+	<h2> Exercise </h2>
+
+	<p>Handle the following form validation</p>
+
+	
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="complaintForm.html">&lt;form name="myForm"&gt;
+	&lt;h3&gt;Training complaint form&lt;/h3&gt;
+	&lt;!--  Show only if the complaint msg length &gt; 5. --&gt;
+	&lt;alert type="error"&gt;
+		Complaint message must be five characters long or less!
+	&lt;/alert&gt;
+	&lt;!--  Name is required --&gt;
+	Your name: &lt;input type="text" name="inputName" ng-model="complaint.name" /&gt;
+	&lt;!-- Correct mail format + required --&gt;
+	Your mail: &lt;input type="text" name="inputMail" ng-model="complaint.mail" /&gt;
+	&lt;!--  Required + 5 characters max --&gt;
+	Your complaint: &lt;input type="text" name="txtContent" ng-model="complaint.content" /&gt;
+	&lt;!--  Disabled if the form has any error. --&gt;
+	&lt;button class="btn" ng-click="sendComplaint()"&gt;Send&lt;/button&gt; 
+&lt;/form&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+<!-- 
+
+<form name="myForm">
+	<h3>Training complaint form</h3>
+	<alert type="error" ng-show="myForm.txtContent.$error.maxlength">
+		Complaint message must be five characters long or less!
+	</alert>
+	Your name: <input type="text" name="inputName" ng-model="complaint.name" ng-required="true"/>
+	Your mail: <input type="email" name="inputMail" ng-model="complaint.mail" ng-required="true" />
+	Your complaint: <input type="text" name="txtContent" ng-model="complaint.content" ng-required="true" ng-maxlength="5"/>
+	<button ng-disabled="myForm.$invalid" class="btn" ng-click="sendComplaint()">Send</button> 
+</form>
+
+ -->
+
+</div>

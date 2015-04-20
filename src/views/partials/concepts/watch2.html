@@ -1,0 +1,33 @@
+<div>
+	<h1>$watch</h1>
+	<ul>
+		<li>
+			<strong>$watch</strong> third parameter: <strong>objectEquality</strong>
+		</li>
+		<li>Compare object for equality rather than for reference.</li>
+		<li>Use it to watch nested elements in arrays or objects.</li>
+		</ul>
+	</div>
+			
+<sdco-editor compile="false" read-only="true" js-fiddle="true">
+	<sdco-editor-tab type="javascript" heading="watch-ctrl.js">
+angular.module('sample', [])
+.controller('WatchCtrl', function($scope) {
+	$scope.currentUser = { lastName: "Sponge", firstName: "Bob" };
+	
+	$scope.$watch('currentUser', function(newValue, oldValue) {
+		$scope.logText = "Hello : " + $scope.currentUser.firstName 
+			+ " " + $scope.currentUser.lastName;
+	}, true);
+});
+	</sdco-editor-tab>
+    <sdco-editor-tab type="html" heading="watch.html">
+    &lt;div ng-app="sample" ng-controller="WatchCtrl"&gt;
+	&lt;input type="text" ng-model="currentUser.firstName"/&gt;
+	&lt;input type="text" ng-model="currentUser.lastName"/&gt;
+	&lt;br/&gt; {{logText}}
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

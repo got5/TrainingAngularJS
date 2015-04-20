@@ -1,0 +1,45 @@
+<div>
+
+    <h1>Testing filters</h1>
+
+    <p> 
+        Comparing to previous tests examples, the main point is to retrieve our filter,
+        which can be done with the $filter service, himself retrieved with the $injector
+        service
+    </p>
+		
+<sdco-editor compile="false">
+    <sdco-editor-tab type="javascript" heading="filtersSpec.js">
+describe('Filters: split', function() {
+
+    var filter, text = "Hello Worldline";
+
+    beforeEach(inject(function($filter){
+        filter = $filter('split');
+    }));
+
+    it('should have the correct length', function(){
+
+        expect(filter(text,'','').length).toBe(3);
+        expect(filter(text).length).toBe(text.length);
+        expect(filter(text,5).length).toBe(text.length+3);
+        expect(filter(text,20).length).toBe(text.length);
+    });
+
+    it('should troncate the result when necessary and add dots', function(){
+
+        expect(filter(text,20)).toBe(text);
+
+        var done = text.substring(0, 10) + "...";
+        expect(filter(text,10)).toBe(done);
+    });
+
+    it('should put text uppercase when asked',function(){
+
+        expect(filter(text,20,true)).toBe(text.toUpperCase());
+    });
+});
+    </sdco-editor-tab>
+</sdco-editor>
+		
+</div>

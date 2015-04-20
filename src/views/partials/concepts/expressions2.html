@@ -1,0 +1,37 @@
+<div>
+	<h1>Expressions in AngularJS</h1>
+
+	<ul>
+		<li>Keep your expressions <strong class="text-red">simple</strong>!</li>
+		<ul>
+			<li>Less code as possible in the view.</li>
+			<li>No unit tests for the code in the views.</li>
+			<li>Prefer using controller functions.</li>
+			<li>Harder to debug!</li>
+		</ul>
+	</ul>
+		
+	<sdco-editor compile="false" height="300">
+		<sdco-editor-tab type="javascript" heading="sample.js">
+//Expression only in the view...
+
+{{isUserLogged == true && ("Hello, " + currentUser.gender + " " + currentUser.firstName + " " + currentUser.lastName) || "You need to log in."}}</i>
+
+// ...Or using controller functions. What do you prefer?  //////////////////////////////
+
+{{getWelcomeLabel()}}
+
+var ExpressionCtrl = function($scope) {
+
+	$scope.getWelcomeLabel = function() {
+		return $scope.isUserLogged ? "Hello, " + getUserName() : "You need to log in.";
+	};
+	
+	getUserName = function() {
+		return currentUser.gender + " " + currentUser.firstName + " " + currentUser.lastName;
+	}
+}
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

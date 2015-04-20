@@ -1,0 +1,40 @@
+<div class="bloc-content text-content">
+
+	<h1> Controllers inheritance </h1>
+
+	<p>Controller inheritance is base on <strong>$scope</strong> inheritance.</p>
+		
+	<sdco-editor compile="false" read-only="true" js-fiddle="true">
+		<sdco-editor-tab type="javascript" heading="controllers.js">
+
+angular.module('sample', [])
+.controller('ParentCtrl', function($scope) {
+	$scope.firstName = 'Bart';
+})
+.controller('ChildCtrl', function ($scope) {
+	$scope.firstName = 'Bob';
+	$scope.lastName = 'Sponge';
+})
+.controller('BabyCtrl', function ($scope) {
+	$scope.lastName="Marley";
+});
+
+		</sdco-editor-tab>
+    	<sdco-editor-tab type="html" heading="controllers.html">
+&lt;div ng-app="sample" &gt;    
+	&lt;div style="border: solid 2px" ng-controller="ParentCtrl"&gt;
+		&lt;p&gt;Hello from Parent, {{firstName + " " + lastName}}&lt;/p&gt;
+		
+		&lt;div style="border: solid red 2px" ng-controller="ChildCtrl"&gt;
+			&lt;p&gt;Hello from Child, {{firstName + " " + lastName}}&lt;/p&gt;
+			
+			&lt;div style="border: solid yellow 2px" ng-controller="BabyCtrl"&gt;
+				&lt;p&gt;Hello from Baby, {{firstName + " " + lastName}}&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

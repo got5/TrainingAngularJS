@@ -1,0 +1,22 @@
+<div class="bloc-content text-content">
+	<h1>Invoking a directive</h1>
+	<ul>
+		<li>Directives have <strong>camel cased names</strong> such as <i>ngClick</i>, <i>ngBind</i>...</li>
+		<li>They can be invoked by translating the camel case name into snake case with these special 
+			characters <strong>:</strong>, <strong>-</strong>, or <strong>_</strong>.</li>
+		<li>They also can be prefixed with <strong>x-</strong> or <strong>data-</strong>
+			 to make them HTML validator compliant.</li>
+		<li>Same rules for the directives parameters </li>
+	</ul>
+
+<sdco-editor editor-options="{showPreview:false , showTabs:false , height:200 }">
+    <sdco-editor-tab type="html" name="directive.html">&lt;span ng-bind="name"&gt;&lt;/span&gt;
+&lt;span ng:bind="name"&gt;&lt;/span&gt;
+&lt;span ng_bind="name"&gt;&lt;/span&gt;
+&lt;span x-ng-bind="name"&gt;&lt;/span&gt;
+&lt;span data-ng-bind="name"&gt;&lt;/span&gt;
+&lt;!-- NOT &lt;span ngBind="name"&gt;&lt;/span&gt; --&gt;
+</sdco-editor-tab>
+</sdco-editor>
+
+</div>

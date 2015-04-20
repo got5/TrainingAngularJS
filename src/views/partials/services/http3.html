@@ -1,0 +1,22 @@
+<div>
+
+	<h1>Main Angular services: $http</h1>
+
+	<h2>Setting HTTP Headers</h2>
+
+	<h3>For <strong>all</strong> requests:</h3>
+
+	<ul>
+		<li><i>$httpProvider.defaults.headers.common</i> (common for all requests).</li>
+		<li><i>$httpProvider.defaults.headers.post</i> (POST requests).</li>
+		<li><i>$httpProvider.defaults.headers.put</i> (PUT requests).</li>
+	</ul>
+
+
+	<h3>For <strong>one</strong> request:</h3>
+
+	<code>$http.get('/users', {headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}});</code>
+
+
+		
+</div>

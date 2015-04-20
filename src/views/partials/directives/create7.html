@@ -1,0 +1,42 @@
+<div class="bloc-content text-content">
+
+	<h1> The scope attribute </h1>
+	<ul>
+		<li>Defines the scope used by the directive. Several values are available:</li>
+		<ul>
+			<li>
+				<i>false</i>(default) : <strong>Current scope</strong> is used.
+				<sdco-notes>
+					Current scope means that, in your link function, the scope will be the same than
+					in your dom, where you set the directive.
+				</sdco-notes>
+			</li>
+			<li><i>true</i>: A <strong>new</strong> scope is created for the
+				directive. <i>Note: Multiple directives on the same level which request a new scope will get the same.</i></li>
+			<li><i>{}</i>: An <strong>isolate</strong> scope is created, which does not inherit
+				from the parent scope. <i>Recommended when making reusable components.</i> Contains a set of local properties
+				derived from the parent scope. Use this notation to link parent scope properties to the directive
+				template properties. There are <strong>three ways</strong> to declare local properties.</li>
+		</ul>
+	</ul>
+
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="html" heading="scopes.js">
+&lt;div ng-controller="myController" &gt;
+	&lt;!-- scope:false means that the link function of this directive
+	     has the same scope that 'myController'
+	 --&gt;
+	&lt;my-directive-scope-false /&gt;
+&lt;/div&gt;
+
+&lt;div ng-controller="myController" &gt;
+	&lt;!-- scope:{} means that the scope in the link function of this directive
+	     is isolated (cannot access to the 'myController' scope)
+	 --&gt;
+	&lt;my-directive-scope-isolated /&gt;
+&lt;/div&gt;
+		</sdco-editor-tab>
+
+
+	</sdco-editor>
+</div>

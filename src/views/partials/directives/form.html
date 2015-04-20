@@ -1,0 +1,27 @@
+<div>
+
+	<h1>Form elements directives</h1>
+	
+	<p>Angular has created directives for each main form element, with custom attributes and behavior</p>
+		
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="form.html">
+&lt;form name="userForm" 
+	ng-init="user = { login: null, mail: 'Bob@gmail.com', role: 'none' }"&gt;
+	
+	Login: &lt;input type="text" ng-model="user.login" 
+		ng-minlength="5" ng-maxlength="10" ng-required="true" /&gt;
+	
+	Email: &lt;input type="email" ng-model="user.mail" ng-required="true" /&gt;
+	
+	Account type: &lt;input type="checkbox" ng-model="user.role" 
+		ng-true-value="admin" ng-false-value="none" /&gt;
+	{{user.role}}
+
+	Email: &lt;input type="submit" /&gt;
+	
+&lt;/form&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

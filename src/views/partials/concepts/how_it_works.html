@@ -1,0 +1,12 @@
+<div class="bloc-content text-content">
+	<h1>How does AngularJS work?</h1>
+	<ul>
+		<li>Browser loads the HTML and then AngularJS script.</li>
+		<li>Angular waits for the event <strong>DOMContentLoaded</strong>...</li>
+		<li>... And looks for the <strong>ng-app</strong> directive in the HTML.</li>
+		<li>The module specified in this directive will be used to configure the injector...</li>
+		<li>...Which is used to create the <strong>$rootScope</strong> and the <strong>$compile</strong> service.</li>
+		<li>$compile compiles the DOM and links it with $rootScope.</li>
+	</ul>
+	<img src="data/imgs/ngapp_rootScope.png"width="350" />
+</div>

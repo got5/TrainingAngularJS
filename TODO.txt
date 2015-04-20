@@ -1,3 +1,0 @@
-TODO:
-Utiliser ng-include pour la popup
-

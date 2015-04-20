@@ -1,0 +1,38 @@
+<div>
+	<h1>Reminder: services and modules </h1>
+
+	<ul>
+		<li>As we told before...</li>
+		<li>Any controller/service/directive/filter is associated to a module </li>
+		<li>Modules can depend on other modules, which gives them access to services/.../filters provided by the others modules</li>
+		<li>Knowing that, you can split your application module between submodules</li>
+	</ul>
+
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="sample.js">
+//Define a custom module for your services
+angular.module('myModule.services', ['ngRoute', 'ngResource'])
+.service('s1', function(){....})
+.service('s1', function(){....})
+...
+
+//Do the same for controllers/directives/filters
+angular.module('myModule.controllers', []).controller('c1', function(){....})
+...
+angular.module('myModule.directives', []).directive('d1', function(){....})
+...
+angular.module('myModule.filters', []).filter('f1', function(){....})
+...
+
+//Finally, declare your application module
+angular.module('myModule', 
+	['myModule.controllers', 'myModule.services', 
+	'myModule.directives', 'myModule.filters']
+);
+
+		</sdco-editor-tab>
+	</sdco-editor>
+
+
+
+</div>

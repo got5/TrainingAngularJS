@@ -1,0 +1,35 @@
+<div>
+
+	<h1>value() and constant()</h1>
+
+	<ul>
+		<li>They are very similar</li>
+		<li>They don't have access to other angular services (no DI)</li>
+		<li>
+			The main difference is that <strong>constant</strong> can be used as a provider
+			during the configuration phase
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false">
+		<sdco-editor-tab type="javascript" heading="value.js">
+angular.module('sample', []);
+// Simple constant
+.value('nbProductsPerPage', 5);
+// Utility methods library, but DI is not available
+.value('ProductUtils', function() {
+	//TODO
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="javascript" heading="constant.js">
+angular.module('sample', [])
+.constant('helloMessage', 'Hello world')
+//constant service is available during the config
+//Note that it is not suffixed by provider...
+.config(['myServiceProvider','helloMessage',function(myServiceProvider, helloMessage) {
+	myServiceProvider.setMessage(helloMessage);
+}]);
+		</sdco-editor-tab>		
+	</sdco-editor>
+		
+	</div>

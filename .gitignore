@@ -1,5 +1,3 @@
-node_modules/
-app/vendor
-config
-prod
-.tmp
+dist
+bower_components
+node_modules

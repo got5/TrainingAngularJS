@@ -1,0 +1,46 @@
+<div>
+
+    <h1>factory() and service()</h1>
+
+	<ul>
+		<li>Registers your service with the <strong>factory()</strong> or <strong>service()</strong> function</li>
+		<li>As others services, these functions will be called once, because services are <strong>singletons</strong></li>
+		<li>DI is available for both methods</li>
+        <li>Functiunalities are the same, differ only on the declaration</li>
+        <li>
+            Factories are handled this way by Angular:
+            <img src="data/imgs/factory.png" width="500" />
+        </li>
+	</ul>
+	
+    <sdco-editor compile="false">
+        <sdco-editor-tab type="javascript" heading="factory.js">
+angular.module('sample', []);
+.factory('UserService', ['$resource, function($resource) {
+    return {
+        fn1:...
+        fn2:...
+    };
+}]);
+//or ..
+angular.module('sample', []);
+.factory('UserService', ['$resource, function($resource) {
+    var UserService= function(){
+        this.fn1= function(){};
+        this.fn2= function(){};
+    }
+    return new UserService();
+}]);
+        </sdco-editor-tab>
+        <sdco-editor-tab type="javascript" heading="service.js">
+angular.module('sample', []);
+//Here we don't have to return anything, Angular will do the new by itself
+//We have won one line of code...
+.service('UserService', ['$resource, function($resource) {
+    this.fn1= function(){};
+    this.fn2= function(){};
+}]);
+        </sdco-editor-tab>        
+    </sdco-editor>	
+
+</div>

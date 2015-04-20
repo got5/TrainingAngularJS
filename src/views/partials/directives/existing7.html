@@ -1,0 +1,36 @@
+<div>
+
+	<h1>ngStyle &amp; ngClass</h1>
+
+	<ul>
+		<li><i>ngStyle</i>: Sets CSS style on an HTML element conditionally.</li>
+		<li><i>ngClass</i>: Sets CSS classes on HTML an element, dynamically.</li>
+		<li><i>Warning</i>: Write <strong>class names</strong> in CamelCase!</li>
+        <li><i>Warning 2</i>: The value is a JS Object</li>
+	</ul>
+
+	<sdco-editor compile="true">
+		<sdco-editor-tab type="html" heading="http.html">&lt;select ng-model="buttonSize" 
+	ng-options="size for size in [ 'small', 'normal', 'big' ]"&gt;
+	&lt;option value=""&gt;-- Choose Size --&lt;/option&gt;
+&lt;/select&gt;
+&lt;button ng-class="{ btn: true, btnSmall: buttonSize == 'small', 
+	btnBig: buttonSize == 'big'}"&gt;Button&lt;/button&gt;
+
+&lt;span ng-repeat="colorValue in ['red', 'blue', 'green']" 
+	ng-style="{ color: colorValue, 'font-size': '15px' }"&gt;
+	{{colorValue}}
+&lt;/span&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="css" heading="style.css">
+.btnSmall{
+	font-size:small;
+}
+
+.btnBig{
+	font-size:large;
+}
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

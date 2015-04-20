@@ -1,0 +1,86 @@
+<div>
+
+	<h1> Form Validation - methods and css </h1>
+
+	<ul>
+		<li>
+			<i>$scope.myForm.<strong>$setDirty()</strong></i>: 
+			Changes form state to <i>$pristine</i>	
+		<li>
+			<i>$scope.myForm.<strong>$setPristine()</strong></i>: 
+			Changes form state to <i>$pristine</i>
+		</li>
+		<li>
+			<i>$scope.myForm.element.<strong>$setValidity(ruleName, isNotValid)</strong></i>: 
+			Defines if the rule <i>ruleName</i> (<i>required</i>, <i>min</i>, etc.) has been 
+			validated (<i>false</i>) or not.
+		</li>
+		<li>
+			Use predefined CSS classes on your form elements:
+			<ul>
+				<li>
+					<strong>ng-valid</strong>/<strong>ng-invalid</strong> if the model is valid or not
+				</li>
+				<li>
+					<strong>ng-valid-[key]</strong>/<strong>ng-invalid-[key]</strong> if the property defined with <strong>$setValidity</strong> is valid or not
+				</li>
+				<li>...</li>
+			</ul>
+		</li>
+		<li>
+			More details:
+			<ul>
+				<li>
+					<a href="https://docs.angularjs.org/api/ng/type/form.FormController" target="_blank">
+						https://docs.angularjs.org/api/ng/type/form.FormController
+					</a>
+				</li>
+				<li>
+					<a href="https://docs.angularjs.org/guide/forms" target="_blank">
+						https://docs.angularjs.org/guide/forms
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true" >
+		<sdco-editor-tab type="javascript" heading="form.js">
+angular.module('sample', [])
+.controller('MailCtrl', ['$scope', function($scope) {
+    $scope.checkEmail= function(){
+        if($scope.user.email == $scope.user.email2){
+            $scope.myForm.email2.$setValidity('samemail', true);
+        } else {
+            $scope.myForm.email2.$setValidity('samemail', false);
+        }        
+    }
+}]);
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="form.html">
+&lt;form ng-app="sample" name="myForm" ng-controller="MailCtrl"&gt;
+	&lt;div ng-class="{error : myForm.email.$invalid}"&gt;
+		Email &lt;input name="email" type="email" ng-model="user.email"&gt;
+		&lt;span ng-show="myForm.email.$error.email"&gt;Mail is not valid!&lt;/span&gt;
+	&lt;/div&gt;
+	
+	&lt;div class="control-group" ng-class="{error : myForm.email2.$invalid}"&gt;
+		Confirm mail 
+		&lt;input name="email2" type="email" ng-model="user.email2" 
+			ng-change="checkEmail()"&gt;
+		&lt;span ng-show="myForm.email2.$error.samemail"&gt;Not the same mail!&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+		</sdco-editor-tab>
+		<sdco-editor-tab type="css" heading="form.css">
+form.ng-invalid-samemail{
+	border:solid 1px red;
+}
+
+input.ng-invalid-samemail{
+	background-color: red;
+}
+		</sdco-editor-tab>		
+	</sdco-editor>
+
+</div>

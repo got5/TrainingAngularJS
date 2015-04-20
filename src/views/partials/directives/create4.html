@@ -1,0 +1,41 @@
+<div>
+	<h1> The <i>template</i> &amp; <i>templateUrl</i> attributes </h1>
+
+	<ul>
+		<li>
+			<i>template</i>: 
+			Replaces the current element with the contents of the HTML.
+		</li>
+		<li>
+			<i>templateUrl</i>: 
+			Same as <i>template</i>, but the template is loaded
+			asynchronously from the specified URL (relative from the index page).
+		</li>
+		<li> 
+			The template content is html.
+			It has the same behavior than the HTML in your application, so you can use
+			expressions, data-binding and other directives...
+		</li>
+
+	</ul>
+		
+	<sdco-editor compile="false" js-fiddle="true">
+		<sdco-editor-tab type="javascript" heading="rating.js">
+angular.module('app',[])
+.directive('starRating', function () {
+    return {
+		restrict: 'A, E',
+		template: '&lt;b&gt;I am the directive content, here is a value from the scope:{{msg}} &lt;/b&gt;',
+		// templateUrl: 'js/directives/templates/rating.html',
+		link: function (scope, elem, attrs) {
+			scope.msg='Hey hello';
+		}
+    };
+});
+		</sdco-editor-tab>
+		<sdco-editor-tab type="html" heading="rating.html">
+&lt;span ng-app="app" star-rating&gt;Let's create a directive!&lt;/span&gt;
+		</sdco-editor-tab>
+	</sdco-editor>
+
+</div>

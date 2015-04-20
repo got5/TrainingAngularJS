@@ -1,0 +1,64 @@
+<div>
+
+	<h1>Summary</h1>
+	<ul>
+		<li><i>value</i> or <i>constant</i> for an existing value.</li>
+		<ul>
+			<li><i>value</i> for an independent object/function. Can be decorated.</li>
+			<li><i>constant</i> for configuration data. Can't be decorated.</li>
+		</ul>
+		<li><i>factory</i>, if you need another service. This is the most common way to create services.</li>
+		<li><i>service</i>, if you love Java and want to use object notation, passing a constructor which will
+			be constructed using the <i>new</i> keyword.</li>
+		<li><i>provider</i>, if you need a configurable service.</li>
+	</ul>
+
+	<table class="data-table">
+		<thead>
+			<tr>
+				<th>Method</th>
+				<th>Can be configured?</th>
+				<th>Dependency Injection</th>
+				<th>When is the service created?</th>
+				<th>Provider name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><b>provider()</b></td>
+				<td>Yes</td>
+				<td>Yes</td>
+				<td>First access, with <i>$get</i> method.</td>
+				<td>Service name + "Provider"</td>
+			</tr>
+			<tr>
+				<td><b>factory()</b></td>
+				<td>No</td>
+				<td>Yes</td>
+				<td>First access, by calling the function.</td>
+				<td>Service name + "Provider"</td>
+			</tr>
+			<tr>
+				<td><b>service()</b></td>
+				<td>No</td>
+				<td>Yes</td>
+				<td>First access, using the function as a constructor.</td>
+				<td>Service name + "Provider"</td>
+			</tr>
+			<tr>
+				<td><b>value()</b></td>
+				<td>No</td>
+				<td>No</td>
+				<td>Existing instance.</td>
+				<td>Service name + "Provider"</td>
+			</tr>
+			<tr>
+				<td><b>constant()</b></td>
+				<td>Yes</td>
+				<td>No</td>
+				<td>Existing instance.</td>
+				<td>Service name</td>
+			</tr>
+		</tbody>
+	</table>	
+</div>
