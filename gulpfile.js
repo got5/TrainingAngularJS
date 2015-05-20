@@ -153,9 +153,6 @@ gulp.task('usemin', ['clean'], function(){
 
 
 
-
-
-
 gulp.task('build', ['copy-resources', 'mbf', 'usemin']);
 
 gulp.task('default', ['build']);
