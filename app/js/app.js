@@ -1,15 +1,14 @@
 (function () {
     "use strict";
 
-    var app = angular.module('app', [ 'ngCookies', 'ngRoute','ngResource', 'ui.bootstrap', 'pascalprecht.translate']);
+    var app = angular.module('app', [ 'ngCookies', 'ngRoute','ngResource', 'ui.bootstrap']);
 
     /** Services configuration */
     app.config(
         [
             '$routeProvider',
             '$locationProvider',
-            '$translateProvider',
-            function ($routeProvider, $locationProvider, $translateProvider) {
+            function ($routeProvider, $locationProvider) {
 
                 $locationProvider.html5Mode(false);
 
@@ -43,19 +42,6 @@
                     access: null
                 }).otherwise({
                     redirectTo: '/404'
-                });
-
-                $translateProvider.translations('en', {
-                    "_Slogan": "All the books you need, at the highest price!",
-                    "_Basket_Items_": "item(s) in your basket",
-                    "_Logout_": "Logout",
-                    "_Sign_In_": "Sign-in"
-                });
-                $translateProvider.translations('fr', {
-                    "_Slogan": "All the books you need, at the highest price!",
-                    "_Basket_Items_": "item(s) in your basket",
-                    "_Logout_": "Logout",
-                    "_Sign_In_": "Sign-in"
                 });
             }
         ]).run(function run( $http, $cookies ){
