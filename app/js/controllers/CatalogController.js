@@ -11,5 +11,15 @@
             });
 
             $scope.nbResults= 5;
+
+            $scope.getRatingClass = ProductUtils.getRatingCss;
+
+            $scope.getImage = ProductUtils.getImage;
+
+            $scope.addToCart = function(pItem){
+                 UserService.addToCart(pItem);
+                 $location.path('/basket');
+            };
+
         }]);
 })();
