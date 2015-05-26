@@ -1,6 +1,9 @@
 [
 	{
 		"login": "login",
-		"password": "password"
+		"password": "password",
+		"firstName":"john",
+		"lastName": "doe",
+		"nbItems": 0
 	}
 ]
