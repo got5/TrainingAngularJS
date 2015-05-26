@@ -15,7 +15,7 @@
             $scope.getImage = ProductUtils.getImage;
 
             $scope.addToCart = function(pItem){
-                 UserService.addToCart(pItem,1);
+                 UserService.addToCart(pItem);
                  $location.path('/basket');
             };
         }]);

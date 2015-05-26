@@ -1,172 +1,9 @@
 (function () {
     "use strict";
 
-    /** User cart. */
-    var Address = function (firstName, lastName, address, postalCode, town, isDefault) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.postalCode = postalCode;
-        this.town = town;
-
-        /** Is this the default shipping address? */
-        this.isDefault = isDefault;
-
-        this.getHTML = function () {
-            var htmlAddress = this.firstName + " " + this.lastName + "<br/>";
-            htmlAddress += address + "<br/>";
-            htmlAddress += this.postalCode + " " + this.town;
-            return htmlAddress;
-        };
-    };
-
-    var Cart = function (pCartItems) {
-
-        var items = null;
-
-        /** Defines cart items. */
-        this.setItems = function (pItems) {
-            items = {};
-            if (pItems) {
-                for (var index = 0; index < pItems.length; index++) {
-                    var cartItem = pItems[index];
-                    items[cartItem.id] = cartItem;
-                }
-            }
-        };
-
-        /** Returns all cart items. */
-        this.getItems = function () {
-            var arrItems = [];
-            for (var key in items) {
-                arrItems.push(items[key]);
-            }
-            return arrItems;
-        };
-
-        /** Sets the quantity for a given item. It will be added if not in the cart. */
-        this.setItemQty = function (pItem, pQty) {
-            if (pQty > 0) {
-                if (items[pItem.id] === undefined) {
-                    items[pItem.id] = new CartItem(pItem, pQty);
-                } else {
-                    items[pItem.id].qty += pQty;
-                }
-            }
-        };
-
-        /** Returns the quantity for a given item. */
-        this.getItemQty = function (pItem) {
-            return items[pItem.id] !== undefined ? items[pItem.id].qty : 0;
-        };
-
-        this.addItem = function (pItem) {
-            this.setItemQty(pItem, 1);
-        };
-
-        this.removeItem = function (pItem) {
-            this[pItem.id] = undefined;
-        };
-
-        this.setItems(pCartItems);
-    };
-    /** Cart item */
-    var CartItem = function (pItem, pQty) {
-        this.id = pItem.id;
-        this.name = pItem.name;
-        this.price = pItem.price;
-        this.qty = pQty;
-    };
-    /** User VO */
-    var User = function (pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses) {
-        this.id = pId;
-        this.firstName = pFirst;
-        this.lastName = pLast;
-        this.login = pLogin;
-        this.password = pPass;
-        this.mail = pMail;
-        this.cart = new Cart(pCartItems);
-        this.role = pRole;
-
-        this.addresses = [];
-        if (pAddresses) {
-            for (var index = 0; index < pAddresses.length; index++) {
-                var addr = pAddresses[index];
-                this.addresses.push(new Address(addr.firstName, addr.lastName, addr.address, addr.postalCode,
-                    addr.town, addr.isDefault));
-            }
-        }
-    };
 
     angular.module('sdcoServices', [])
-        .value('User', {
-            createUser: function (pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses) {
-                return new User(pId, pFirst, pLast, pLogin, pPass, pMail, pCartItems, pRole, pAddresses);
-            },
-            createCart: function(pItems){
-                return new Cart(pItems);
-            }
-    });
-
-
-
-    /** Service which handle all user logic. */
-    var UserService = function ($http, $q, $log, $cookies, $cookieStore, User, isDebugMode) {
-
-        /** Currently logged user. */
-        var currentUser = null;   
-
-        var saveCurrentUser = function(){
-            $cookieStore.put('cart',currentUser.cart.getItems());
-            $cookieStore.put('user',currentUser);
-        };
-
-        this.getCurrentUser = function () {
-
-            if (!currentUser) {
-                currentUser = $cookieStore.get('user');
-                if (!currentUser) {
-                    currentUser = User.createUser();
-                    saveCurrentUser();
-                }else{
-                    currentUser.cart = User.createCart($cookieStore.get('cart'));
-                }
-            }
-            return currentUser;
-        };
-
-        /** Add an item with a given quantity in the user basket. */
-        this.addToCart = function (pItem, pQty) {
-            this.getCurrentUser().cart.setItemQty(pItem, pQty);
-            saveCurrentUser();
-        };        
-
-
-
-        this.logUser = function (login, password) {
-            // We create a promise to offer the possibility to users to call some functions after the
-            // asynchronous call of $http.get.
-            var deferred = $q.defer();
-
-            /** Gets all users... */
-            $http.post('/api/login', {login: login, password: password})
-            .success(function (user) {
-                    isDebugMode && $log.info('Authentication successed !');
-                    $cookieStore.put('user', user);
-                    deferred.resolve(user);
-                })
-                .error(function (reason) {
-                    isDebugMode && $log.error('unable to log  ' + reason);
-                    deferred.reject("Bad login and/or password");
-                });
-
-            // A promise is returned, so we can make: userService.logUser(u, p).then(success, error).
-            return deferred.promise;
-        };
-    };
-
-    /** Registers our service in a new sub module. */
-    angular.module('sdcoServices').provider('UserService',function() {
+    .provider('UserService',function() {
 
         var isDebugMode = false;
 
@@ -174,9 +11,68 @@
             isDebugMode = pIsDebug;
         };
 
-        this.$get = [ '$http', '$q', '$log', '$cookies', '$cookieStore', 'User', function ($http, $q, $log, $cookies, $cookieStore, User) {
-            return new UserService($http, $q, $log, $cookies, $cookieStore, User, isDebugMode);
+        this.$get = [ '$http', '$q', '$log', '$cookies', function ($http, $q, $log, $cookies) {
+
+            /** Service which handle all user logic. */
+            var UserService = function ($http, $q, $log, $cookies, isDebugMode) {
+
+                var isLogged;
+
+                var cart=[];
+
+                this.isLogged= function(){
+                    return isLogged;
+                };
+
+                this.logUser = function (login, password) {
+                    // We create a promise to offer the possibility to users to call some functions after the
+                    // asynchronous call of $http.get.
+                    var deferred = $q.defer();
+
+                    /** Gets all users... */
+                    $http.post('/api/login', {login: login, password: password})
+                    .success(function (user) {
+                        isDebugMode && $log.info('Authentication successed !');
+                        isLogged= true;
+                        $cookies.putObject('user', user);
+                        deferred.resolve(user);
+                    })
+                    .error(function (reason) {
+                        isDebugMode && $log.error('unable to log  ' + reason);
+                        isLogged= false;
+                        deferred.reject("Bad login and/or password");
+                    });
+
+                    // A promise is returned, so we can make: userService.logUser(u, p).then(success, error).
+                    return deferred.promise;
+                };
+
+                this.getUser= function(){
+                    return $cookies.getObject('user');
+                }
+
+                /** Add an item with a given quantity in the user basket. */
+                this.addToCart = function (pItem) {
+                    var user= this.getUser();
+                    var cart= user.cart;
+                    if (!cart){
+                        cart= [];
+                    }
+                    user.cart= cart;
+                    cart.push(pItem);
+                    $cookies.putObject('user', user);
+                };
+
+                this.getCart= function(){
+                    var user= this.getUser();
+                    return user.cart;
+                };
+
+            };
+
+            return new UserService($http, $q, $log, $cookies, isDebugMode);
         }];
+
     });
 
 })();
