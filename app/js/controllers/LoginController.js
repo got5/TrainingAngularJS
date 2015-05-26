@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module('app')
-        .controller('LoginController', ['$scope' , '$http', '$log', '$cookieStore', '$location', function ($scope, $http, $log, $cookieStore, $location) {
+        .controller('LoginController', ['$scope' , '$http', '$log', '$cookies', '$location', function ($scope, $http, $log, $cookies, $location) {
             $scope.errorMsg = null;
 
             $scope.logUser = function () {
@@ -12,7 +12,7 @@
                         /**
                          * Use cookies to store user
                          */
-                        $cookieStore.put('user', user);
+                        $cookies.put('user', user);
                         /**
                          * Redirection
                          */
