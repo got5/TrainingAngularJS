@@ -6,14 +6,13 @@
     /** Layout directive controller */
     var LayoutController = function ($scope, $cookies, $rootScope, $location, $route) {
 
-        /** TODO: Gets registered user from cookies. */
+        // TODO: This function has to be called when:
+        // -> The user is logged in
+        // -> The user is logged out
+        $scope.updateLayoutData= function(){
 
-        /** TODO: User access check */
+        }
 
-        /** Logout function */
-        $scope.logout = function () {
-            // TODO
-        };
     };
 
     /** Layout directive. Wraps every view in the application. */
