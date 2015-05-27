@@ -159,7 +159,7 @@ app.get('/api/catalog', function (req, res) {
 });
 
 app.get('/api/catalog/:id', function (req, res) {
-    if (catalog.length <= req.params.id || req.params.id < 0) {
+    if (catalog.length < req.params.id || req.params.id < 0) {
         res.statusCode = 404;
         return res.send('Error 404: No quote found');
     }
