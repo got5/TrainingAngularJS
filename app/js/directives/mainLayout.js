@@ -12,13 +12,7 @@
 
         // TODO: Set the logged user in the scope
         $scope.updateLayoutData= function(){
-
-            if (UserService.isLogged() && $scope.user === undefined){
-                $scope.user= UserService.getUser();
-            }else{
-                console.log('Not logged');
-            }
-
+            $scope.user= UserService.getUser();
         };
 
     };
