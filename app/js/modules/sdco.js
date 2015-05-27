@@ -16,10 +16,10 @@
             /** Service which handle all user logic. */
             var UserService = function ($http, $q, $log, $cookies, isDebugMode) {
 
-                var isLogged;
+                var currentUser;
 
                 this.isLogged= function(){
-                    return isLogged;
+                    return (currentUser!==undefined);
                 };
 
                 this.logUser = function (login, password) {
@@ -31,13 +31,13 @@
                     $http.post('/api/login', {login: login, password: password})
                     .success(function (user) {
                         isDebugMode && $log.info('Authentication successed !');
-                        isLogged= true;
+                        currentUser= user;
                         $cookies.putObject('user', user);
                         deferred.resolve(user);
                     })
                     .error(function (reason) {
                         isDebugMode && $log.error('unable to log  ' + reason);
-                        isLogged= false;
+                        currentUser= undefined;
                         deferred.reject("Bad login and/or password");
                     });
 
@@ -46,7 +46,7 @@
                 };
 
                 this.getUser= function(){
-                    return $cookies.getObject('user');
+                    return currentUser;
                 }
 
             };
