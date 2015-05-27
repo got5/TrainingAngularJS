@@ -10,9 +10,7 @@
             $scope.updateLayoutData();
         });
 
-        // TODO: This function has to be called when:
-        // -> The user is logged in
-        // -> The user is logged out
+        // TODO: Set the logged user in the scope
         $scope.updateLayoutData= function(){
 
             if (UserService.isLogged() && $scope.user === undefined){
