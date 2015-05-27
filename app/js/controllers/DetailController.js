@@ -33,7 +33,7 @@
                             var comment = comments[index];
                             sumRatings += comment.rate;
                         }
-                        return (sumRatings / comments.length |0);  // like Math... but better :)
+                        return Math.floor(sumRatings / comments.length);
                     }
                     return 0;
                 };
