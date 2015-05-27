@@ -33,6 +33,7 @@
                     $http.post('/api/login', {login: login, password: password})
                     .success(function (user) {
                         isDebugMode && $log.info('Authentication successed !');
+                        user.nbItems= 0;
                         currentUser= user;
                         $cookies.putObject('user', user);
                         deferred.resolve(user);
@@ -60,6 +61,8 @@
                     }
                     user.cart= cart;
                     cart.push(pItem);
+                    user.nbItems++;
+                    currentUser= user;
                     $cookies.putObject('user', user);
                 };
 
