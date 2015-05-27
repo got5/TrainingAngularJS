@@ -1,3 +1,7 @@
+/**
+ * Created by pierremarot on 13/03/2014.
+ */
+
 describe("ProductUtils Service", function () {
     var ProductUtils,
         comments = [
