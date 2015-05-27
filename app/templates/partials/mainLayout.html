@@ -4,7 +4,7 @@
 		<h1>SDCO Book Store <small>All the books you need, at the highest price!</small></h1>
 		
 		<p ng-if="user != null" class="k-basket-sum">
-			<a href="/basket" title="See basket details"><strong>{{nbItems}}</strong>item(s) in your basket</a>
+			<a href="/basket" title="See basket details"><strong>{{user.nbItems}}</strong>item(s) in your basket</a>
 		</p>
 		<p ng-if="user != null" class="k-login-data">
 			Welcome, 
