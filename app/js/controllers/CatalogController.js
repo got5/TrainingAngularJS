@@ -20,6 +20,5 @@
                  UserService.addToCart(pItem);
                  $location.path('/basket');
             };
-
         }]);
 })();
