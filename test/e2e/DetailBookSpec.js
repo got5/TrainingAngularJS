@@ -9,12 +9,12 @@ describe("Detail Book Page", function () {
     });
 
     it('The price change when updating quantity', function () {
-        expect(element(by.binding('product.price * quantity')).getText()).toEqual('$15.34');
+        expect(element(by.binding('product.price * quantity |currency')).getText()).toEqual('$15.34');
         var qty = element(by.model('quantity'));
         qty.clear();
         /*browser.debugger();*/
         qty.sendKeys(2);
-        expect(element(by.binding('product.price * quantity')).getText()).toEqual('$30.68');
+        expect(element(by.binding('product.price * quantity |currency')).getText()).toEqual('$30.68');
     });
 
     it('The image url is correct', function () {
