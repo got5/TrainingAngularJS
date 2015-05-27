@@ -6,12 +6,14 @@
     /** Layout directive controller */
     var LayoutController = function ($scope, $cookies, $rootScope, $location, $route) {
 
-        // TODO: This function has to be called when:
-        // -> The user is logged in
-        // -> The user is logged out
+        $scope.$on('$routeChangeSuccess', function(){
+            $scope.updateLayoutData();
+        });
+
+        // TODO: Set the logged user in the scope
         $scope.updateLayoutData= function(){
 
-        }
+        };
 
     };
 
