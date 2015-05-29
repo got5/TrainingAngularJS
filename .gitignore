@@ -4,3 +4,6 @@ app/vendor
 prod
 dist
 .tmp
+
+jetty-resteasy
+*.log
