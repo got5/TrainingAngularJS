@@ -2,22 +2,34 @@
 
 	<h1> Practical Work </h1>
 	<ol>
-		<li>In our <i>ecommerce</i> application, create a service <i>UserService</i> 
-			to handle the login logic, and to store the logged user. Use it in your controller 
-			<i>LoginController</i>.</li>
-		<li>Create a utility service <i>ProductUtils</i>, which will contain a method called
+		<li>
+			Create a service <i>UserService</i> to handle the login logic and to store the logged user. 
+			Use it in your controller <i>LoginController</i>.
+		</li>
+		<li>
+			Still in <i>UserService</i>, add a method to get the connected user if any 
+			(or undefined if not connected), and use this method in <i>mainLayout.js</i> 
+			(in the <i>$scope.updateLayoutData</i> function).
+			If it works fine, you should see the user name in the header after the redirection.
+		</li>
+		<li>
+			Create a utility service <i>ProductUtils</i>, which will contain a method called
 			<i>getProductRating(product)</i>. It will return the average rating for a given
-			product.</li>
-		<li>Then make another method <i>getRatingCss(product)</i>, which will use the previous one
-			to return the correct CSS class used to display a product rating.</li>
-		<li>Use the new service <i>ProductUtils</i> in the controller <i>
-			DetailController</i>.</li>
-		<li>Create a module called <i>sdcoServices</i>, which will contain your services
-			<i>UserService</i> and <i>User</i> (see User.js).</li>
-        <li>Add to your service <i>UserService</i> a <i>debug mode</i>,
-			which will determine if logs are displayed  in <i>$http</i> handler functions (using 
-			the <i>$log</i> service). Make sure this parameter can  be ONLY set 
-			during the application startup.
+			product.
+		</li>
+		<li>
+			Add to <i>ProductUtils</i> the <i>getRatingCss(product)</i> method
+			to return the correct CSS classes (used to display a product rating).
+		</li>
+		<li>
+			Use the new service <i>ProductUtils</i> in the controller <i>DetailController</i>.</li>
+		<li>
+			Create a module named <i>sdcoServices</i>, and move your <i>UserService</i> to this new module.
+		</li>
+        <li>
+        	Make your <i>UserService</i> configurable by adding a debug mode 
+        	parameter which can only be set during the configuration phase of the application.
+        	(when set to true, log $http success requests for example)
 			<br/>
 			To create a new module: 
 			<pre><code>var myModule = angular.module('sdcoServices', []); // Do not forget to import this module in your app module, and to load the UserService.js BEFORE the app.js.</code></pre>
