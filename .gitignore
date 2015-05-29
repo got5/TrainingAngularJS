@@ -7,3 +7,9 @@ app/vendor
 .idea/
 npm-debug*.log
 prod/
+
+# java
+jetty-resteasy/.settings
+jetty-resteasy/.classpath
+jetty-resteasy/.project
+jetty-resteasy/target
