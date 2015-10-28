@@ -6,7 +6,7 @@
         <li>In the home page of our <i>ecommerce</i> application, we will display all the news added by the webmasters.
             Use the <i>$resource</i> service to manage news. Following functionalities are needed:
             <ol>
-                <li>look at server.js to understand the rest api</li>
+                <li>look at <code>jetty-resteasy/src/main/java/com/example/rest/services/NewsApi.java</code> to understand the rest api (don't hesitate to ask the former if you need). All REST urls start by <i>/api</i> (for example, /api/news is an available operation...) </li>
                 <li>List all the news in the <i>table</i> element.</li>
                 <li>Displays the news of the day in the bottom panel.</li>
                 <ul>
@@ -20,8 +20,7 @@
         </li>
         <li>Tips:
             <ol>
-                <li>look at server.js to understand the rest api</li>
-                <li>Use the url <i>/api/news/:operation/:id</i> with your <i>$resource</i> object</i></li>
+                <li>Understand that this url is enough to do all needed operations: <i>/api/news/:operation/:id</i></li>
             </ol>
         </li>
 

@@ -5,16 +5,21 @@
 	<ul>
 		<li><strong>Exercises</strong>
 			<ul>
-				<li>Write a function <i>getNbUsers</i>, which uses <i>$http</i>
-					service to return the content of <i>data/users.json</i> file.
+				<li>Write a function <i>asyncGetNbUsers</i>, which: 
+					service to: 
+					<ul>
+						<li>
+							Return a promise
+						</li>
+						<li>
+					 		uses <i>$http</i> to retrieve the content of <i>data/exos/users.json</i> file
+					 	</li>
+					 	<li>
+					 	Resolve the returned promise with the json content retrieved...
+					 	</li>
+					 </ul>
 				</li>
-				<li>Create a function which use the <i>$timeout</i> service
-					to call this function after two seconds.
-				</li>
-				<li>Make a promise in the above function to return the number of results 
-					in the <i>resolve()</i> function. You can now call the function <i>asynchGetNbUsers()</i>, and get the result 
-					in a chained <i>then()</i> function, to store it in a <i>$scope.nbUsers</i> property.
-				</li>
+				<li>Call your asyncGetTimeout() to update the $scope.nbUsers field</li>
 			</ul>
 	</ul>
 		
@@ -29,15 +34,10 @@ angular.module('trainingAJ')
 .exoController('UserCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 	
 	$scope.asynchGetNbUsers = function() {
-		// TODO: 1) use $timeout, just to create an asynch action
 
-		// TODO: 2) The function in the timeout has to retrieve the file data/users.json
-		//			and resolve a promise when data is retrieved, or reject it in case of error
-
-		// TODO: 3) Don't forget to return your promise
 	};
 
-	// TODO 4: Call $scope.asynchGetNbUsers() and update the $scope.nbUsers field...
+	//$scope.asynchGetNbUsers() &lt;- to complete
 }]);
 
 		</sdco-editor-tab>
