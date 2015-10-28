@@ -34,6 +34,21 @@
 			<version>3.0.5.Final</version>
 			<scope>${jackson-scope}</scope>
 		</dependency>
+		
+
+        <!-- Shiro dependencies: -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro-version}</version>
+        </dependency>		
+		
+		
 
 	</dependencies>
 
@@ -69,6 +84,12 @@
 						<version>9.2.6.v20141205</version>
 						<configuration>
 							<reload>manual</reload>
+							<systemProperties>
+								<systemProperty>
+									<name>DISABLE_FILTER</name>
+									<value>${shirofilter-isactive}</value>
+								</systemProperty>
+							</systemProperties>
 							<webAppConfig>
 								<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
 								<resourceBases>
@@ -81,8 +102,15 @@
 				</plugins>
 			</build>
 
+		</profile>
+		
+		<profile>
+			<id>shiroActive</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<properties>
-
+				<shirofilter-isactive>true</shirofilter-isactive>
 			</properties>
 		</profile>
 
@@ -94,8 +122,11 @@
 		<jetty-scope>compile</jetty-scope>
 	
 		<servlet-api-release-version>2.5</servlet-api-release-version>
+		<shiro-version>1.2.4</shiro-version>
+		
 		<front-base-project>${project.basedir}/../</front-base-project>
 		<front-dev-deps>${front-base-project}/app</front-dev-deps>
+		<shirofilter-isactive>false</shirofilter-isactive>
 	</properties>
 
 

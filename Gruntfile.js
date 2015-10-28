@@ -195,6 +195,16 @@ module.exports = function(grunt){
                 ]
 
             }
+        },
+        exec:{
+            server:{
+                cmd:'mvn jetty:run',
+                cwd:'jetty-resteasy'
+            },
+            serversecu:{
+                cmd:'mvn jetty:run -Pdev,shiroActive',
+                cwd:'jetty-resteasy'
+            }
         }
     });
 
@@ -203,6 +213,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('eslint-grunt');
+    grunt.loadNpmTasks('grunt-exec');
 
     grunt.registerTask("build", [
         "test",
