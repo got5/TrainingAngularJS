@@ -1,6 +1,6 @@
 [
 	{
-		"login": "login",
+		"login": "admin",
 		"password": "password",
 		"firstName":"john",
 		"lastName": "doe",
