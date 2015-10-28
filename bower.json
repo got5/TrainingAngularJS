@@ -5,11 +5,11 @@
     "Pierre Marot"
   ],
   "dependencies": {
-    "angular": "1.4.0-rc.2",
-    "angular-route": "1.4.0-rc.2",
-    "angular-cookies": "1.4.0-rc.2",
+    "angular": "1.4.7",
+    "angular-route": "1.4.7",
+    "angular-cookies": "1.4.7",
     "angular-ui-bootstrap-bower": "0.13.0",
-    "angular-resource": "1.4.0-rc.2"
+    "angular-resource": "1.4.7"
   },
   "homepage": "https://github.com/got5/TrainingAngularJS",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "tests"
   ],
   "devDependencies": {
-    "angular-mocks": "1.4.0-rc.2"
+    "angular-mocks": "1.4.7"
   },
   "resolutions": {
     "angular": "1.2.16"
