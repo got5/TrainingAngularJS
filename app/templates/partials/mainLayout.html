@@ -11,7 +11,7 @@
 			<span id="user-name">
 				<a href="#/profile">{{user.firstName}} {{user.lastName}}</a>
 			</span> 
-			[<strong><a href="#" ng-click="logout()">Logout</a></strong>]
+			[<strong><a href="/api/logout" >Logout</a></strong>]
 		</p>
 		<p ng-if="user == null" id="loginLink">
 			<a href="#/login">Sign-in</a>

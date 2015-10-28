@@ -19,6 +19,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.example.beans.UserAuth;
 import com.example.beans.UserCredentials;
+import com.example.utils.Utils;
 
 
 @Path("/login")
@@ -27,14 +28,7 @@ public class Authentication {
 	private final List<UserAuth> userAuths= new LinkedList<UserAuth>();
 	private UserCredentials[] credentials;
 	
-	public Authentication(){
-		//Users
-		UserAuth ua= new UserAuth();
-		ua.setLogin("login");
-		ua.setPassword("password");
-
-		this.userAuths.add(ua);
-	}
+	public Authentication(){}
 	
 	private UserCredentials[] getCredentials() throws JsonParseException, JsonMappingException, IOException{
 		//Credentials
@@ -51,22 +45,34 @@ public class Authentication {
 		return this.credentials;		
 	}
 	
+	/** The authentication is not really done here, but in the shiro
+	 * filter. This method just send user data
+	 * 
+	 * @param the user (login and password) to check for
+	 * @return user data
+	 * @throws JsonParseException if any
+	 * @throws JsonMappingException if any
+	 * @throws IOException if any
+	 */
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
 	public UserCredentials authenticate(UserAuth ua) throws JsonParseException, JsonMappingException, IOException{
 
-		if (this.userAuths.contains(ua)){
-			for(UserCredentials cred: this.getCredentials()){
-				if (
-						(cred.getLogin()!=null &&  cred.getLogin().equals(ua.getLogin())) && 
-						(cred.getPassword()!=null && cred.getPassword().equals(ua.getPassword()))
-					){
-					return cred;
-				}
+		for(UserCredentials cred: this.getCredentials()){
+			//Check login / password
+			if (
+					(cred.getLogin()!=null &&  cred.getLogin().equals(ua.getLogin())) && 
+					(cred.getPassword()!=null && cred.getPassword().equals(ua.getPassword()))
+				){
+				//Shiro authentication
+//				Utils.authenticate(cred.getLogin(), cred.getPassword());
+
+				//return authenticated user data
+				return cred;
 			}
 		}
-		
+
 		throw new WebApplicationException(HttpURLConnection.HTTP_BAD_REQUEST);
 	}
 	
