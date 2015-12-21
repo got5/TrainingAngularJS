@@ -55,7 +55,7 @@ grunt test:unit
 
 Launch server
 ```bash
- node server
+ grunt exec:server
 ```
 
 Application is now running in :
