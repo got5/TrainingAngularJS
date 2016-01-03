@@ -73,7 +73,7 @@ public class Authentication {
 			}
 		}
 
-		throw new WebApplicationException(HttpURLConnection.HTTP_BAD_REQUEST);
+		throw new WebApplicationException(HttpURLConnection.HTTP_UNAUTHORIZED);
 	}
 	
 	
