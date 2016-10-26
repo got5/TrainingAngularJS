@@ -62,11 +62,33 @@ Application is now running in :
 
 [localhost:3000](localhost:3000)
 
+## To update your changes online ( the version hosted by github )
+
+First be sure that you can run the application locally!
+
+Then, suppose you made some modifications on **slides** and want to make them available online,
+you will have to:
+* generate the new deliverable
+* switch to the **gh-pages** branch
+* update the **gh-pages** branch based on the generated dist
+* push the modifications on gh-branches
+
+```bash
+rm -rf dist #remove the previous version if any
+gulp #generates a new dist folder
+git checkout gh-pages # go to gh-pages branch
+rm -rf data/ imgs/ index.html  js/ styles/ views/ # remove previous content
+mv dist/* . # update previous content
+```
+
+Finally, commit and push you modifications as usually
+
+
 ## Online exercices
 Here are the solutions for the different online exercice : 
 
 * [Slide 24 - Two-Way Data Binding Magic](https://gist.github.com/got5/d699b5a4362d057fe995)
-* [Slide 29 - Expressions in AngularJS] (https://gist.github.com/got5/a8fade483f338178dd7b) 
+* [Slide 29 - Expressions in AngularJS](https://gist.github.com/got5/a8fade483f338178dd7b) 
 * [Slide 39 - Use of $watch by Angular](https://gist.github.com/got5/a19fe6e66c3c9c927fad)
 * [Slide 46 - To conclude about controllers..](https://gist.github.com/got5/65a58721d7ac7a2b8db3)
 * [Slide 67 - Main Angular services: $http](https://gist.github.com/got5/e5eb8798533505f87329)
